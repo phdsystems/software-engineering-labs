@@ -2,7 +2,6 @@
 
 **Comprehensive guide for generating production-quality code with LLMs**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Research](https://img.shields.io/badge/Research-Software%20Engineering%20Labs-green.svg)](https://github.com/phdsystems)
 
 **Research:** Software Engineering Labs, led by Amu Hlongwane
@@ -250,7 +249,7 @@ Repository: https://github.com/phdsystems/prompt-engineering
 
 ## License
 
-MIT License - See LICENSE for details
+MIT License
 
 ---
 
