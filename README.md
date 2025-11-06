@@ -1,5 +1,10 @@
 # Prompt Engineering for Software Development
 
+**Comprehensive guide for generating production-quality code with LLMs**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Research](https://img.shields.io/badge/Research-Software%20Engineering%20Labs-green.svg)](https://github.com/phdsystems)
+
 **Research:** Software Engineering Labs, led by Amu Hlongwane
 **Date:** 2025-11-06
 
@@ -7,16 +12,16 @@
 
 ## Overview
 
-Comprehensive guide to prompt engineering for software development. Learn techniques, patterns, and frameworks to generate production-quality code using LLMs (Claude, GPT-4, etc.).
+Learn prompt engineering techniques, patterns, and frameworks to generate production-quality code using LLMs (Claude, GPT-4, etc.).
 
 **Target Audience:** Software engineers, developers, architects
 **Prerequisites:** Programming experience, familiarity with SDLC
 
 ---
 
-## Tutorial Structure
+## Guide Structure
 
-The tutorial is organized into 6 focused modules:
+This guide is organized into 6 focused modules:
 
 ### 1. [Fundamentals](fundamentals.md) 📚
 **Start here if you're new to prompt engineering.**
@@ -195,7 +200,7 @@ The tutorial is organized into 6 focused modules:
 
 ## Research Context
 
-This tutorial is the result of ongoing research by **Software Engineering Labs, led by Amu Hlongwane**, focusing on the application of Large Language Models to software engineering practices.
+This guide is the result of ongoing research by **Software Engineering Labs, led by Amu Hlongwane**, focusing on the application of Large Language Models to software engineering practices.
 
 **Research Objectives:**
 1. Identify effective prompt patterns for software engineering tasks
