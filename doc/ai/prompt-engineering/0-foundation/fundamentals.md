@@ -1,6 +1,6 @@
 # Prompt Engineering Fundamentals
 
-**Part of:** [Prompt Engineering Tutorial](README.md)
+**Part of:** [Prompt Engineering Tutorial](../README.md)
 **Date:** 2025-11-06
 **Research:** Software Engineering Labs, led by Amu Hlongwane
 
@@ -15,6 +15,8 @@
 ## Introduction
 
 **Prompt Engineering** is the discipline of designing inputs (prompts) that guide Large Language Models (LLMs) to produce desired outputs. In software engineering contexts, effective prompt engineering can dramatically improve code quality, reduce development time, and minimize errors.
+
+**Want to understand the WHY behind these principles?** Read [First Principles Approach](first-principles-approach.md) to learn the philosophical foundation and reasoning behind effective prompting.
 
 ### Why Prompt Engineering Matters
 
@@ -357,17 +359,17 @@ Provide:
 
 Now that you understand the fundamental principles, proceed to:
 
-1. **[Core Techniques](core-techniques.md)** - Learn Few-Shot, Chain-of-Thought, and more
-2. **[Advanced Techniques](advanced-techniques.md)** - Master ReAct, Tree of Thoughts, Reflexion
-3. **[Memory Management](memory-management.md)** - Handle long conversations and context
+1. **[Core Techniques](../1-core-techniques/core-techniques.md)** - Learn Few-Shot, Chain-of-Thought, and more
+2. **[Advanced Techniques](../2-advanced-techniques/advanced-techniques.md)** - Master ReAct, Tree of Thoughts, Reflexion
+3. **[Memory Management](../2-advanced-techniques/memory-management.md)** - Handle long conversations and context
 
 ---
 
 ## Related Documentation
 
-- [Tutorial Home](README.md) - Complete tutorial navigation
-- [Anti-Patterns](anti-patterns.md) - Common mistakes to avoid
-- [Optimization Framework](optimization-framework.md) - How to improve your prompts
+- [Tutorial Home](../README.md) - Complete tutorial navigation
+- [Anti-Patterns](../3-optimization/anti-patterns.md) - Common mistakes to avoid
+- [Optimization Framework](../3-optimization/optimization-framework.md) - How to improve your prompts
 
 ---
 

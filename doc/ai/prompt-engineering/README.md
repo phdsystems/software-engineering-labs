@@ -20,55 +20,77 @@ Learn prompt engineering techniques, patterns, and frameworks to generate produc
 
 ## Guide Structure
 
-This guide is organized into 6 focused modules:
+This guide is organized into 4 progressive phases, following a **first principles approach**:
 
-### 1. [Fundamentals](fundamentals.md) 📚
-**Start here if you're new to prompt engineering.**
+### Phase 0: Foundation 📚
+**Start here - understand the WHY before the HOW**
+
+#### [First Principles Approach](0-foundation/first-principles-approach.md)
+**Learn the philosophy behind effective prompting.**
 
 **Topics:**
-- 5 core principles: Clarity, Context, Role Assignment, Task Decomposition, Constraints
-- Why prompt engineering matters (10x impact table)
-- Combining principles for maximum effect
+- What are first principles? (fundamental axioms)
+- First principles vs cookbook prompting
+- Derivation chain: axioms → techniques → applications
+- Why first principles thinking is powerful
+- Real-world examples and comparisons
+
+**Time:** 45-60 minutes
+**Output:** Understand foundational philosophy, think systematically about prompts
+
+#### [Fundamentals](0-foundation/fundamentals.md)
+**Master the 5 core communication principles.**
+
+**Topics:**
+- Clarity and Specificity (reduce ambiguity)
+- Context Provision (enable understanding)
+- Role Assignment (expert personas)
+- Task Decomposition (break into steps)
+- Constraint Specification (define boundaries)
 
 **Time:** 20-30 minutes
 **Output:** Understand foundational concepts, write effective basic prompts
 
 ---
 
-### 2. [Core Techniques](core-techniques.md) 🔧
-**Master 5 essential techniques.**
+### Phase 1: Core Techniques 🔧
+**Apply principles to create practical techniques**
+
+#### [Core Techniques](1-core-techniques/core-techniques.md)
+**Master 5 essential techniques derived from first principles.**
 
 **Topics:**
-- Few-Shot Prompting (provide examples)
-- Chain-of-Thought (request reasoning)
-- Persona-Based (assign expert roles)
-- Constraint-Based (define boundaries)
-- Format Specification (structure outputs)
+- Few-Shot Prompting (applies Example Principle)
+- Chain-of-Thought (applies Reasoning Principle)
+- Persona-Based (applies Context + Role)
+- Constraint-Based (applies Constraint Principle)
+- Format Specification (applies Clarity + Example)
 
 **Time:** 30-40 minutes
 **Output:** Apply techniques to common tasks (code generation, code review, testing)
 
 ---
 
-### 3. [Advanced Techniques](advanced-techniques.md) 🚀
-**Handle complex, multi-step tasks.**
+### Phase 2: Advanced Techniques 🚀
+**Combine techniques for complex, multi-step tasks**
+
+#### [Advanced Techniques](2-advanced-techniques/advanced-techniques.md)
+**Handle complex problems with advanced patterns.**
 
 **Topics:**
-- ReAct (Reasoning + Acting)
-- Tree of Thoughts (explore paths)
-- Self-Consistency (majority vote)
+- ReAct (Reasoning + Acting with tools)
+- Tree of Thoughts (explore multiple reasoning paths)
+- Self-Consistency (majority vote validation)
 - Reflexion (learn from mistakes)
-- Tool Use (external APIs)
-- Least-to-Most (simple → complex)
+- Tool Use (external APIs and databases)
+- Least-to-Most (simple → complex decomposition)
 - Multi-Turn Dialogue, Iterative Refinement, Meta-Prompting
 - Temperature Control, Negative Prompting
 
 **Time:** 45-60 minutes
 **Output:** Solve complex problems (debugging, architecture decisions, migrations)
 
----
-
-### 4. [Memory Management](memory-management.md) 💾
+#### [Memory Management](2-advanced-techniques/memory-management.md)
 **Handle long conversations and context limits.**
 
 **Topics:**
@@ -82,8 +104,11 @@ This guide is organized into 6 focused modules:
 
 ---
 
-### 5. [Anti-Patterns](anti-patterns.md) ⚠️
-**Learn what NOT to do.**
+### Phase 3: Optimization 📈
+**Systematically improve and debug prompts**
+
+#### [Anti-Patterns](3-optimization/anti-patterns.md)
+**Learn what NOT to do - violations of principles.**
 
 **Topics:**
 - 10 common mistakes that destroy effectiveness
@@ -94,10 +119,8 @@ This guide is organized into 6 focused modules:
 **Time:** 20-30 minutes
 **Output:** Recognize and avoid pitfalls, debug failing prompts
 
----
-
-### 6. [Optimization Framework](optimization-framework.md) 📈
-**Systematic prompt improvement.**
+#### [Optimization Framework](3-optimization/optimization-framework.md)
+**Systematic prompt improvement using first principles.**
 
 **Topics:**
 - 4-step framework: Define criteria → Provide context → Refine progressively → Verify
@@ -115,32 +138,45 @@ This guide is organized into 6 focused modules:
 ### Path 1: Quick Start (Minimum Viable Knowledge)
 **Time:** 90 minutes
 
-1. [Fundamentals](fundamentals.md) - Core principles
-2. [Core Techniques](core-techniques.md) - Few-Shot + CoT + Format Specification
-3. [Anti-Patterns](anti-patterns.md) - Avoid common mistakes
+1. [Fundamentals](0-foundation/fundamentals.md) - Core principles
+2. [Core Techniques](1-core-techniques/core-techniques.md) - Few-Shot + CoT + Format Specification
+3. [Anti-Patterns](3-optimization/anti-patterns.md) - Avoid common mistakes
 
 **Outcome:** Write effective prompts for common tasks.
 
 ---
 
-### Path 2: Production-Ready (Recommended)
-**Time:** 3-4 hours
+### Path 2: First Principles Foundation (Recommended for Deep Understanding)
+**Time:** 2-3 hours
 
-1. [Fundamentals](fundamentals.md)
-2. [Core Techniques](core-techniques.md)
-3. [Advanced Techniques](advanced-techniques.md) - ReAct + ToT + Reflexion
-4. [Anti-Patterns](anti-patterns.md)
-5. [Optimization Framework](optimization-framework.md)
+1. [First Principles Approach](0-foundation/first-principles-approach.md) - Philosophy and reasoning
+2. [Fundamentals](0-foundation/fundamentals.md) - Core communication principles
+3. [Core Techniques](1-core-techniques/core-techniques.md) - Derived techniques
+4. [Anti-Patterns](3-optimization/anti-patterns.md) - Principle violations
+
+**Outcome:** Understand WHY techniques work, adapt to novel situations, think systematically.
+
+---
+
+### Path 3: Production-Ready (Complete Practical Skills)
+**Time:** 4-5 hours
+
+1. [First Principles Approach](0-foundation/first-principles-approach.md)
+2. [Fundamentals](0-foundation/fundamentals.md)
+3. [Core Techniques](1-core-techniques/core-techniques.md)
+4. [Advanced Techniques](2-advanced-techniques/advanced-techniques.md) - ReAct + ToT + Reflexion
+5. [Anti-Patterns](3-optimization/anti-patterns.md)
+6. [Optimization Framework](3-optimization/optimization-framework.md)
 
 **Outcome:** Generate production-quality code, handle complex tasks, optimize systematically.
 
 ---
 
-### Path 3: Expert (Complete Mastery)
-**Time:** 5-6 hours
+### Path 4: Expert (Complete Mastery)
+**Time:** 6-7 hours
 
-1. Complete Path 2 (all 6 modules)
-2. [Memory Management](memory-management.md) - For long-running projects
+1. Complete Path 3 (all core modules)
+2. [Memory Management](2-advanced-techniques/memory-management.md) - For long-running projects
 
 **Outcome:** Master all techniques, manage multi-week projects, build custom prompt systems.
 
@@ -191,9 +227,17 @@ This guide is organized into 6 focused modules:
 
 ## Quick Start
 
-1. **Start learning:** Begin with [Fundamentals](fundamentals.md)
-2. **Practice:** Apply techniques to your real projects
-3. **Iterate:** Use [Optimization Framework](optimization-framework.md) to refine prompts
+### For Deep Understanding (Recommended)
+1. **Understand philosophy:** Start with [First Principles Approach](0-foundation/first-principles-approach.md)
+2. **Learn principles:** Study [Fundamentals](0-foundation/fundamentals.md)
+3. **Apply techniques:** Read [Core Techniques](1-core-techniques/core-techniques.md)
+4. **Practice:** Apply to your real projects
+5. **Optimize:** Use [Optimization Framework](3-optimization/optimization-framework.md) to refine prompts
+
+### For Quick Application (Minimum Time)
+1. **Start learning:** Begin with [Fundamentals](0-foundation/fundamentals.md)
+2. **Master basics:** Study [Core Techniques](1-core-techniques/core-techniques.md)
+3. **Practice:** Apply techniques to your real projects
 
 ---
 
@@ -265,6 +309,7 @@ Contributions welcome! Please:
 ---
 
 **Last Updated:** 2025-11-06
-**Modules:** 6
-**Total Reading Time:** ~3-4 hours (recommended path)
+**Modules:** 7 (organized in 4 phases: Foundation, Core, Advanced, Optimization)
+**Total Reading Time:** ~4-5 hours (production-ready path)
+**Organization:** First Principles Approach - understand WHY before HOW
 **Research:** Software Engineering Labs, led by Amu Hlongwane

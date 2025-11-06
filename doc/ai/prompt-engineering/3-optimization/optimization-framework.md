@@ -1,6 +1,6 @@
 # Prompt Optimization Framework
 
-**Part of:** [Prompt Engineering Tutorial](README.md)
+**Part of:** [Prompt Engineering Tutorial](../README.md)
 **Date:** 2025-11-06
 **Research:** Software Engineering Labs, led by Amu Hlongwane
 
@@ -598,16 +598,16 @@ Before finalizing prompt:
 Now that you have a systematic framework:
 
 1. **[Anti-Patterns](anti-patterns.md)** - Learn what to avoid
-2. **[Core Techniques](core-techniques.md)** - Apply fundamental patterns
-3. **[Advanced Techniques](advanced-techniques.md)** - Master complex techniques
+2. **[Core Techniques](../1-core-techniques/core-techniques.md)** - Apply fundamental patterns
+3. **[Advanced Techniques](../2-advanced-techniques/advanced-techniques.md)** - Master complex techniques
 
 ---
 
 ## Related Documentation
 
-- [Tutorial Home](README.md) - Complete tutorial navigation
-- [Fundamentals](fundamentals.md) - Core principles
-- [Memory Management](memory-management.md) - Context strategies
+- [Tutorial Home](../README.md) - Complete tutorial navigation
+- [Fundamentals](../0-foundation/fundamentals.md) - Core principles
+- [Memory Management](../2-advanced-techniques/memory-management.md) - Context strategies
 
 ---
 

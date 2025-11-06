@@ -1,6 +1,6 @@
 # Memory and Context Management
 
-**Part of:** [Prompt Engineering Tutorial](README.md)
+**Part of:** [Prompt Engineering Tutorial](../README.md)
 **Date:** 2025-11-06
 **Research:** Software Engineering Labs, led by Amu Hlongwane
 
@@ -587,17 +587,17 @@ def compress_conversation(old_messages):
 
 Now that you understand memory management, proceed to:
 
-1. **[Anti-Patterns](anti-patterns.md)** - Common mistakes to avoid
-2. **[Optimization Framework](optimization-framework.md)** - Systematic prompt improvement
-3. **[Fundamentals](fundamentals.md)** - Review core principles
+1. **[Anti-Patterns](../3-optimization/anti-patterns.md)** - Common mistakes to avoid
+2. **[Optimization Framework](../3-optimization/optimization-framework.md)** - Systematic prompt improvement
+3. **[Fundamentals](../0-foundation/fundamentals.md)** - Review core principles
 
 ---
 
 ## Related Documentation
 
-- [Tutorial Home](README.md) - Complete tutorial navigation
+- [Tutorial Home](../README.md) - Complete tutorial navigation
 - [Advanced Techniques](advanced-techniques.md) - ReAct, ToT, Reflexion (use memory in these patterns)
-- [Core Techniques](core-techniques.md) - Few-Shot, CoT, Persona
+- [Core Techniques](../1-core-techniques/core-techniques.md) - Few-Shot, CoT, Persona
 
 ---
 

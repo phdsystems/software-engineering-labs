@@ -1,6 +1,6 @@
 # Advanced Prompt Engineering Techniques
 
-**Part of:** [Prompt Engineering Tutorial](README.md)
+**Part of:** [Prompt Engineering Tutorial](../README.md)
 **Date:** 2025-11-06
 **Research:** Software Engineering Labs, led by Amu Hlongwane
 
@@ -16,7 +16,7 @@
 
 Advanced techniques build on core methods to handle complex, multi-step tasks. These patterns enable structured problem-solving, external tool integration, and sophisticated reasoning chains.
 
-**Prerequisites:** Master [Core Techniques](core-techniques.md) first (Few-Shot, CoT, Persona, Constraints, Format).
+**Prerequisites:** Master [Core Techniques](../1-core-techniques/core-techniques.md) first (Few-Shot, CoT, Persona, Constraints, Format).
 
 ---
 
@@ -606,16 +606,16 @@ Lesson: Always profile before scaling resources.
 Now that you've mastered advanced techniques, proceed to:
 
 1. **[Memory Management](memory-management.md)** - Context windows, conversation history, caching strategies
-2. **[Anti-Patterns](anti-patterns.md)** - Common mistakes to avoid
-3. **[Optimization Framework](optimization-framework.md)** - Systematic prompt improvement
+2. **[Anti-Patterns](../3-optimization/anti-patterns.md)** - Common mistakes to avoid
+3. **[Optimization Framework](../3-optimization/optimization-framework.md)** - Systematic prompt improvement
 
 ---
 
 ## Related Documentation
 
-- [Tutorial Home](README.md) - Complete tutorial navigation
-- [Core Techniques](core-techniques.md) - Prerequisite techniques
-- [Fundamentals](fundamentals.md) - Core principles
+- [Tutorial Home](../README.md) - Complete tutorial navigation
+- [Core Techniques](../1-core-techniques/core-techniques.md) - Prerequisite techniques
+- [Fundamentals](../0-foundation/fundamentals.md) - Core principles
 
 ---
 

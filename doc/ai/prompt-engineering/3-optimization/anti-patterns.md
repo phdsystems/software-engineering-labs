@@ -1,6 +1,6 @@
 # Anti-Patterns to Avoid
 
-**Part of:** [Prompt Engineering Tutorial](README.md)
+**Part of:** [Prompt Engineering Tutorial](../README.md)
 **Date:** 2025-11-06
 **Research:** Software Engineering Labs, led by Amu Hlongwane
 
@@ -544,16 +544,16 @@ Before submitting a prompt, verify:
 Now that you know what to avoid, learn how to systematically improve prompts:
 
 1. **[Optimization Framework](optimization-framework.md)** - Step-by-step prompt improvement process
-2. **[Core Techniques](core-techniques.md)** - Positive patterns to apply
-3. **[Fundamentals](fundamentals.md)** - Core principles review
+2. **[Core Techniques](../1-core-techniques/core-techniques.md)** - Positive patterns to apply
+3. **[Fundamentals](../0-foundation/fundamentals.md)** - Core principles review
 
 ---
 
 ## Related Documentation
 
-- [Tutorial Home](README.md) - Complete tutorial navigation
-- [Advanced Techniques](advanced-techniques.md) - Complex patterns
-- [Memory Management](memory-management.md) - Context window strategies
+- [Tutorial Home](../README.md) - Complete tutorial navigation
+- [Advanced Techniques](../2-advanced-techniques/advanced-techniques.md) - Complex patterns
+- [Memory Management](../2-advanced-techniques/memory-management.md) - Context window strategies
 
 ---
 

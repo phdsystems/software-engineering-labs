@@ -1,6 +1,6 @@
 # Core Prompt Engineering Techniques
 
-**Part of:** [Prompt Engineering Tutorial](README.md)
+**Part of:** [Prompt Engineering Tutorial](../README.md)
 **Date:** 2025-11-06
 **Research:** Software Engineering Labs, led by Amu Hlongwane
 
@@ -507,17 +507,17 @@ Format your review as:
 
 Now that you've mastered core techniques, proceed to:
 
-1. **[Advanced Techniques](advanced-techniques.md)** - ReAct, Tree of Thoughts, Self-Consistency, Reflexion
-2. **[Memory Management](memory-management.md)** - Context windows, conversation history, caching
-3. **[Anti-Patterns](anti-patterns.md)** - Common mistakes to avoid
+1. **[Advanced Techniques](../2-advanced-techniques/advanced-techniques.md)** - ReAct, Tree of Thoughts, Self-Consistency, Reflexion
+2. **[Memory Management](../2-advanced-techniques/memory-management.md)** - Context windows, conversation history, caching
+3. **[Anti-Patterns](../3-optimization/anti-patterns.md)** - Common mistakes to avoid
 
 ---
 
 ## Related Documentation
 
-- [Tutorial Home](README.md) - Complete tutorial navigation
-- [Fundamentals](fundamentals.md) - Core principles (prerequisite)
-- [Optimization Framework](optimization-framework.md) - How to improve prompts systematically
+- [Tutorial Home](../README.md) - Complete tutorial navigation
+- [Fundamentals](../0-foundation/fundamentals.md) - Core principles (prerequisite)
+- [Optimization Framework](../3-optimization/optimization-framework.md) - How to improve prompts systematically
 
 ---
 
