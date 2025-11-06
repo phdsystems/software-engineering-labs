@@ -1,0 +1,330 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1100">
+  <!-- Title -->
+  <text x="700" y="30" font-size="26" font-weight="bold" text-anchor="middle" fill="#24292e">
+    SE Learning System - User Flow Diagram
+  </text>
+  <text x="700" y="55" font-size="14" text-anchor="middle" fill="#586069">
+    Complete Learner Journey (Beginner to Advanced)
+  </text>
+
+  <!-- Legend -->
+  <rect x="50" y="70" width="450" height="40" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1" rx="4"/>
+  <text x="60" y="92" font-size="11" font-weight="bold" fill="#24292e">Legend:</text>
+  <rect x="110" y="80" width="60" height="20" fill="#e6f3ff" stroke="#0066cc" stroke-width="2" rx="4"/>
+  <text x="140" y="94" font-size="10" text-anchor="middle" fill="#0066cc">Entry Point</text>
+  <rect x="180" y="80" width="60" height="20" fill="#fff5e6" stroke="#ff9900" stroke-width="2" rx="4"/>
+  <text x="210" y="94" font-size="10" text-anchor="middle" fill="#cc6600">Action</text>
+  <rect x="250" y="80" width="60" height="20" fill="#e6ffe6" stroke="#00cc00" stroke-width="2" rx="4"/>
+  <text x="280" y="94" font-size="10" text-anchor="middle" fill="#006600">Decision</text>
+  <rect x="320" y="80" width="60" height="20" fill="#ffe6e6" stroke="#cc0000" stroke-width="2" rx="4"/>
+  <text x="350" y="94" font-size="10" text-anchor="middle" fill="#990000">Exit/Goal</text>
+  <circle cx="400" cy="90" r="12" fill="#d0d7de" stroke="#666666" stroke-width="2"/>
+  <text x="425" y="94" font-size="10" fill="#586069">Process</text>
+
+  <!-- ========== FLOW 1: NEW USER (BEGINNER) ========== -->
+  <text x="50" y="145" font-size="16" font-weight="bold" fill="#0066cc">Flow 1: New User (Beginner Path)</text>
+
+  <!-- 1. Landing Page -->
+  <rect x="50" y="160" width="150" height="60" fill="#e6f3ff" stroke="#0066cc" stroke-width="3" rx="8"/>
+  <text x="125" y="180" font-size="13" font-weight="bold" text-anchor="middle" fill="#0066cc">🏠 Landing Page</text>
+  <text x="125" y="200" font-size="10" text-anchor="middle" fill="#586069">se-learning.dev</text>
+  <text x="65" y="215" font-size="9" fill="#586069">• Hero section</text>
+
+  <!-- Arrow -->
+  <path d="M 125 220 L 125 260" stroke="#0066cc" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+  <text x="135" y="245" font-size="9" fill="#586069">First visit</text>
+
+  <!-- 2. Choose Learning Path -->
+  <rect x="50" y="260" width="150" height="60" fill="#e6ffe6" stroke="#00cc00" stroke-width="3" rx="8"/>
+  <text x="125" y="280" font-size="12" font-weight="bold" text-anchor="middle" fill="#006600">🎯 Choose Path</text>
+  <text x="65" y="300" font-size="9" fill="#586069">Options:</text>
+  <text x="65" y="313" font-size="8" fill="#586069">□ Beginner (0-2 years)</text>
+
+  <!-- Arrow -->
+  <path d="M 200 290 L 260 290" stroke="#00cc00" stroke-width="2" fill="none" marker-end="url(#arrowgreen)"/>
+  <text x="215" y="285" font-size="9" fill="#006600">Select Beginner</text>
+
+  <!-- 3. Beginner Path Overview -->
+  <rect x="260" y="260" width="150" height="60" fill="#fff5e6" stroke="#ff9900" stroke-width="3" rx="8"/>
+  <text x="335" y="280" font-size="12" font-weight="bold" text-anchor="middle" fill="#cc6600">📚 Path Overview</text>
+  <text x="275" y="300" font-size="9" fill="#586069">See curriculum:</text>
+  <text x="275" y="313" font-size="8" fill="#586069">10 lessons • 8 hours</text>
+
+  <!-- Arrow -->
+  <path d="M 335 320 L 335 370" stroke="#ff9900" stroke-width="2" fill="none" marker-end="url(#arroworange)"/>
+
+  <!-- 4. Lesson 1: First Principles -->
+  <rect x="260" y="370" width="150" height="60" fill="#ffffff" stroke="#666666" stroke-width="2" rx="8"/>
+  <text x="335" y="390" font-size="12" font-weight="bold" text-anchor="middle" fill="#24292e">📖 Lesson 1</text>
+  <text x="275" y="405" font-size="9" fill="#586069">First Principles</text>
+  <text x="275" y="420" font-size="8" fill="#586069">• Read TL;DR (30s)</text>
+
+  <!-- Arrow -->
+  <path d="M 335 430 L 335 480" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrowgray)"/>
+
+  <!-- 5. Read Content -->
+  <circle cx="335" cy="500" r="30" fill="#d0d7de" stroke="#666666" stroke-width="2"/>
+  <text x="335" y="500" font-size="10" font-weight="bold" text-anchor="middle" fill="#24292e">📄 Read</text>
+  <text x="335" y="512" font-size="8" text-anchor="middle" fill="#586069">15 min</text>
+
+  <!-- Arrow -->
+  <path d="M 335 530 L 335 570" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrowgray)"/>
+
+  <!-- 6. Mark Complete -->
+  <rect x="260" y="570" width="150" height="50" fill="#e6ffe6" stroke="#00cc00" stroke-width="2" rx="8"/>
+  <text x="335" y="590" font-size="11" font-weight="bold" text-anchor="middle" fill="#006600">✅ Mark Complete</text>
+  <text x="335" y="608" font-size="9" text-anchor="middle" fill="#586069">Progress: 10% (1/10)</text>
+
+  <!-- Arrow to Next Lesson -->
+  <path d="M 335 620 L 335 680" stroke="#00cc00" stroke-width="2" fill="none" marker-end="url(#arrowgreen)"/>
+  <text x="345" y="655" font-size="9" fill="#006600">Auto-suggest</text>
+
+  <!-- 7. Lesson 2: SOLID -->
+  <rect x="260" y="680" width="150" height="60" fill="#ffffff" stroke="#666666" stroke-width="2" rx="8"/>
+  <text x="335" y="700" font-size="12" font-weight="bold" text-anchor="middle" fill="#24292e">📖 Lesson 2</text>
+  <text x="275" y="715" font-size="9" fill="#586069">SOLID Principles</text>
+  <text x="275" y="730" font-size="8" fill="#586069">• Multi-lang examples</text>
+
+  <!-- Arrow loops -->
+  <path d="M 410 710 Q 460 710 460 600 Q 460 540 410 540" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrowgray)" stroke-dasharray="5,5"/>
+  <text x="465" y="625" font-size="9" fill="#586069">Repeat</text>
+  <text x="465" y="638" font-size="9" fill="#586069">for each</text>
+  <text x="465" y="651" font-size="9" fill="#586069">lesson</text>
+
+  <!-- 8. Path Complete -->
+  <rect x="260" y="780" width="150" height="50" fill="#ffe6e6" stroke="#cc0000" stroke-width="3" rx="8"/>
+  <text x="335" y="800" font-size="13" font-weight="bold" text-anchor="middle" fill="#990000">🎓 Path Complete!</text>
+  <text x="335" y="818" font-size="9" text-anchor="middle" fill="#586069">Badge unlocked</text>
+
+  <!-- Arrow to Advanced -->
+  <path d="M 410 805 L 480 805" stroke="#cc0000" stroke-width="2" fill="none" marker-end="url(#arrowred)"/>
+  <text x="425" y="800" font-size="9" fill="#990000">Next: Intermediate</text>
+
+  <!-- ========== FLOW 2: EXPERIENCED USER (DIRECT SEARCH) ========== -->
+  <text x="550" y="145" font-size="16" font-weight="bold" fill="#0066cc">Flow 2: Experienced User (Direct Search)</text>
+
+  <!-- 1. Search Entry -->
+  <rect x="550" y="160" width="150" height="60" fill="#e6f3ff" stroke="#0066cc" stroke-width="3" rx="8"/>
+  <text x="625" y="180" font-size="13" font-weight="bold" text-anchor="middle" fill="#0066cc">🔍 Search</text>
+  <text x="625" y="200" font-size="10" text-anchor="middle" fill="#586069">Type: "CQRS"</text>
+  <text x="565" y="215" font-size="9" fill="#586069">⌘K or click search</text>
+
+  <!-- Arrow -->
+  <path d="M 625 220 L 625 260" stroke="#0066cc" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+  <text x="635" y="245" font-size="9" fill="#586069">&lt;200ms</text>
+
+  <!-- 2. Search Results -->
+  <rect x="550" y="260" width="150" height="80" fill="#fff5e6" stroke="#ff9900" stroke-width="3" rx="8"/>
+  <text x="625" y="280" font-size="12" font-weight="bold" text-anchor="middle" fill="#cc6600">📋 Results (4)</text>
+  <text x="565" y="300" font-size="9" fill="#586069">1. CQRS Deep Dive ⭐</text>
+  <text x="565" y="315" font-size="9" fill="#586069">2. Event Sourcing</text>
+  <text x="565" y="330" font-size="9" fill="#586069">3. Java CQRS Example</text>
+
+  <!-- Arrow -->
+  <path d="M 625 340 L 625 380" stroke="#ff9900" stroke-width="2" fill="none" marker-end="url(#arroworange)"/>
+  <text x="635" y="365" font-size="9" fill="#cc6600">Click #1</text>
+
+  <!-- 3. Document View -->
+  <rect x="550" y="380" width="150" height="60" fill="#ffffff" stroke="#666666" stroke-width="2" rx="8"/>
+  <text x="625" y="400" font-size="12" font-weight="bold" text-anchor="middle" fill="#24292e">📄 CQRS Deep Dive</text>
+  <text x="565" y="420" font-size="9" fill="#586069">• Scan TL;DR (20s)</text>
+  <text x="565" y="433" font-size="9" fill="#586069">• Jump to examples</text>
+
+  <!-- Arrow -->
+  <path d="M 625 440 L 625 480" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrowgray)"/>
+
+  <!-- 4. Code Examples -->
+  <rect x="550" y="480" width="150" height="70" fill="#ffffff" stroke="#666666" stroke-width="2" rx="8"/>
+  <text x="625" y="500" font-size="12" font-weight="bold" text-anchor="middle" fill="#24292e">💻 Examples</text>
+  <text x="565" y="520" font-size="9" fill="#586069">• Switch lang tabs</text>
+  <text x="565" y="535" font-size="9" fill="#586069">• Copy code snippet</text>
+
+  <!-- Arrow -->
+  <path d="M 625 550 L 625 590" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrowgray)"/>
+
+  <!-- 5. Related Content -->
+  <rect x="550" y="590" width="150" height="60" fill="#e6ffe6" stroke="#00cc00" stroke-width="2" rx="8"/>
+  <text x="625" y="610" font-size="11" font-weight="bold" text-anchor="middle" fill="#006600">🔗 Explore Related</text>
+  <text x="565" y="630" font-size="9" fill="#586069">→ Event Sourcing</text>
+  <text x="565" y="643" font-size="9" fill="#586069">→ Microservices</text>
+
+  <!-- Arrow -->
+  <path d="M 625 650 L 625 690" stroke="#00cc00" stroke-width="2" fill="none" marker-end="url(#arrowgreen)"/>
+
+  <!-- 6. Goal Achieved -->
+  <rect x="550" y="690" width="150" height="50" fill="#ffe6e6" stroke="#cc0000" stroke-width="3" rx="8"/>
+  <text x="625" y="710" font-size="13" font-weight="bold" text-anchor="middle" fill="#990000">✅ Goal Achieved</text>
+  <text x="625" y="728" font-size="9" text-anchor="middle" fill="#586069">Knowledge gained</text>
+
+  <!-- ========== FLOW 3: MOBILE USER ========== -->
+  <text x="770" y="145" font-size="16" font-weight="bold" fill="#0066cc">Flow 3: Mobile User (On-the-Go Learning)</text>
+
+  <!-- 1. Mobile Landing -->
+  <rect x="770" y="160" width="150" height="60" fill="#e6f3ff" stroke="#0066cc" stroke-width="3" rx="8"/>
+  <text x="845" y="180" font-size="13" font-weight="bold" text-anchor="middle" fill="#0066cc">📱 Mobile View</text>
+  <text x="845" y="200" font-size="10" text-anchor="middle" fill="#586069">iPhone/Android</text>
+  <text x="785" y="215" font-size="9" fill="#586069">Responsive layout</text>
+
+  <!-- Arrow -->
+  <path d="M 845 220 L 845 260" stroke="#0066cc" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+
+  <!-- 2. Hamburger Menu -->
+  <rect x="770" y="260" width="150" height="60" fill="#fff5e6" stroke="#ff9900" stroke-width="3" rx="8"/>
+  <text x="845" y="280" font-size="12" font-weight="bold" text-anchor="middle" fill="#cc6600">☰ Menu</text>
+  <text x="785" y="300" font-size="9" fill="#586069">Tap hamburger icon</text>
+  <text x="785" y="313" font-size="9" fill="#586069">→ Navigation slides in</text>
+
+  <!-- Arrow -->
+  <path d="M 845 320 L 845 360" stroke="#ff9900" stroke-width="2" fill="none" marker-end="url(#arroworange)"/>
+
+  <!-- 3. Select Document -->
+  <rect x="770" y="360" width="150" height="60" fill="#ffffff" stroke="#666666" stroke-width="2" rx="8"/>
+  <text x="845" y="380" font-size="12" font-weight="bold" text-anchor="middle" fill="#24292e">📖 Choose Topic</text>
+  <text x="785" y="400" font-size="9" fill="#586069">Design Patterns</text>
+  <text x="785" y="413" font-size="9" fill="#586069">→ Creational Patterns</text>
+
+  <!-- Arrow -->
+  <path d="M 845 420 L 845 460" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrowgray)"/>
+
+  <!-- 4. Optimized Reading -->
+  <rect x="770" y="460" width="150" height="80" fill="#ffffff" stroke="#666666" stroke-width="2" rx="8"/>
+  <text x="845" y="480" font-size="12" font-weight="bold" text-anchor="middle" fill="#24292e">📱 Read Mode</text>
+  <text x="785" y="500" font-size="9" fill="#586069">• Single column</text>
+  <text x="785" y="515" font-size="9" fill="#586069">• Large tap targets</text>
+  <text x="785" y="530" font-size="9" fill="#586069">• Swipe for TOC</text>
+
+  <!-- Arrow -->
+  <path d="M 845 540 L 845 580" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrowgray)"/>
+
+  <!-- 5. Bookmark -->
+  <rect x="770" y="580" width="150" height="50" fill="#e6ffe6" stroke="#00cc00" stroke-width="2" rx="8"/>
+  <text x="845" y="600" font-size="11" font-weight="bold" text-anchor="middle" fill="#006600">⭐ Bookmark</text>
+  <text x="845" y="618" font-size="9" text-anchor="middle" fill="#586069">Save for later</text>
+
+  <!-- Arrow -->
+  <path d="M 845 630 L 845 670" stroke="#00cc00" stroke-width="2" fill="none" marker-end="url(#arrowgreen)"/>
+
+  <!-- 6. Resume Later -->
+  <rect x="770" y="670" width="150" height="50" fill="#ffe6e6" stroke="#cc0000" stroke-width="3" rx="8"/>
+  <text x="845" y="690" font-size="13" font-weight="bold" text-anchor="middle" fill="#990000">🔄 Resume Later</text>
+  <text x="845" y="708" font-size="9" text-anchor="middle" fill="#586069">Progress saved</text>
+
+  <!-- ========== FLOW 4: RETURNING USER (CONTINUE LEARNING) ========== -->
+  <text x="990" y="145" font-size="16" font-weight="bold" fill="#0066cc">Flow 4: Returning User (Continue Learning)</text>
+
+  <!-- 1. Return to Site -->
+  <rect x="990" y="160" width="150" height="60" fill="#e6f3ff" stroke="#0066cc" stroke-width="3" rx="8"/>
+  <text x="1065" y="180" font-size="13" font-weight="bold" text-anchor="middle" fill="#0066cc">🔙 Return Visit</text>
+  <text x="1065" y="200" font-size="10" text-anchor="middle" fill="#586069">3 days later</text>
+  <text x="1005" y="215" font-size="9" fill="#586069">Cookie detected</text>
+
+  <!-- Arrow -->
+  <path d="M 1065 220 L 1065 260" stroke="#0066cc" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+
+  <!-- 2. Welcome Back -->
+  <rect x="990" y="260" width="150" height="70" fill="#fff5e6" stroke="#ff9900" stroke-width="3" rx="8"/>
+  <text x="1065" y="280" font-size="12" font-weight="bold" text-anchor="middle" fill="#cc6600">👋 Welcome Back!</text>
+  <text x="1005" y="300" font-size="9" fill="#586069">Progress: 60% (6/10)</text>
+  <text x="1005" y="315" font-size="9" fill="#586069">"Continue where you</text>
+  <text x="1005" y="325" font-size="9" fill="#586069">left off?"</text>
+
+  <!-- Arrow -->
+  <path d="M 1065 330 L 1065 370" stroke="#ff9900" stroke-width="2" fill="none" marker-end="url(#arroworange)"/>
+  <text x="1075" y="355" font-size="9" fill="#cc6600">Click "Continue"</text>
+
+  <!-- 3. Resume Lesson -->
+  <rect x="990" y="370" width="150" height="60" fill="#ffffff" stroke="#666666" stroke-width="2" rx="8"/>
+  <text x="1065" y="390" font-size="12" font-weight="bold" text-anchor="middle" fill="#24292e">📖 Lesson 7</text>
+  <text x="1005" y="410" font-size="9" fill="#586069">Microservices Pattern</text>
+  <text x="1005" y="423" font-size="9" fill="#586069">Jump to 40% mark</text>
+
+  <!-- Arrow -->
+  <path d="M 1065 430 L 1065 470" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrowgray)"/>
+
+  <!-- 4. Complete Lessons -->
+  <circle cx="1065" cy="500" r="30" fill="#d0d7de" stroke="#666666" stroke-width="2"/>
+  <text x="1065" y="500" font-size="10" font-weight="bold" text-anchor="middle" fill="#24292e">📚 Learn</text>
+  <text x="1065" y="512" font-size="8" text-anchor="middle" fill="#586069">Lessons 7-10</text>
+
+  <!-- Arrow -->
+  <path d="M 1065 530 L 1065 570" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrowgray)"/>
+
+  <!-- 5. Path Complete -->
+  <rect x="990" y="570" width="150" height="60" fill="#e6ffe6" stroke="#00cc00" stroke-width="2" rx="8"/>
+  <text x="1065" y="590" font-size="11" font-weight="bold" text-anchor="middle" fill="#006600">🎓 Beginner Path</text>
+  <text x="1065" y="605" font-size="11" font-weight="bold" text-anchor="middle" fill="#006600">COMPLETE!</text>
+  <text x="1065" y="620" font-size="9" text-anchor="middle" fill="#586069">Badge earned</text>
+
+  <!-- Arrow -->
+  <path d="M 1065 630 L 1065 670" stroke="#00cc00" stroke-width="2" fill="none" marker-end="url(#arrowgreen)"/>
+
+  <!-- 6. Next Challenge -->
+  <rect x="990" y="670" width="150" height="70" fill="#ffe6e6" stroke="#cc0000" stroke-width="3" rx="8"/>
+  <text x="1065" y="690" font-size="13" font-weight="bold" text-anchor="middle" fill="#990000">🚀 Next Step</text>
+  <text x="1005" y="710" font-size="9" fill="#586069">Recommended:</text>
+  <text x="1005" y="725" font-size="9" fill="#586069">→ Intermediate Path</text>
+
+  <!-- ========== ENGAGEMENT METRICS ========== -->
+  <rect x="50" y="880" width="1300" height="190" fill="#f6f8fa" stroke="#d0d7de" stroke-width="2" rx="8"/>
+  <text x="700" y="910" font-size="16" font-weight="bold" text-anchor="middle" fill="#24292e">
+    📊 User Engagement Metrics (Per Flow)
+  </text>
+
+  <!-- Metrics Table -->
+  <rect x="80" y="930" width="1240" height="120" fill="#ffffff" stroke="#d0d7de" stroke-width="1" rx="4"/>
+
+  <!-- Table Header -->
+  <rect x="80" y="930" width="1240" height="30" fill="#e6f3ff" rx="4 4 0 0"/>
+  <text x="120" y="950" font-size="11" font-weight="bold" fill="#24292e">Flow</text>
+  <text x="350" y="950" font-size="11" font-weight="bold" fill="#24292e">User Type</text>
+  <text x="550" y="950" font-size="11" font-weight="bold" fill="#24292e">Avg. Session Time</text>
+  <text x="750" y="950" font-size="11" font-weight="bold" fill="#24292e">Pages Viewed</text>
+  <text x="950" y="950" font-size="11" font-weight="bold" fill="#24292e">Completion Rate</text>
+  <text x="1150" y="950" font-size="11" font-weight="bold" fill="#24292e">Goal</text>
+
+  <!-- Flow 1 -->
+  <line x1="80" y1="960" x2="1320" y2="960" stroke="#d0d7de" stroke-width="1"/>
+  <text x="100" y="980" font-size="10" fill="#586069">Flow 1</text>
+  <text x="350" y="980" font-size="10" fill="#586069">Beginner (New)</text>
+  <text x="550" y="980" font-size="10" fill="#586069">45 minutes</text>
+  <text x="750" y="980" font-size="10" fill="#586069">8-12 pages</text>
+  <text x="950" y="980" font-size="10" fill="#00cc00">80% path completion</text>
+  <text x="1150" y="980" font-size="10" fill="#990000">Learn fundamentals</text>
+
+  <!-- Flow 2 -->
+  <line x1="80" y1="990" x2="1320" y2="990" stroke="#d0d7de" stroke-width="1"/>
+  <text x="100" y="1010" font-size="10" fill="#586069">Flow 2</text>
+  <text x="350" y="1010" font-size="10" fill="#586069">Experienced</text>
+  <text x="550" y="1010" font-size="10" fill="#586069">12 minutes</text>
+  <text x="750" y="1010" font-size="10" fill="#586069">2-4 pages</text>
+  <text x="950" y="1010" font-size="10" fill="#00cc00">95% find answer</text>
+  <text x="1150" y="1010" font-size="10" fill="#990000">Quick reference</text>
+
+  <!-- Flow 3 -->
+  <line x1="80" y1="1020" x2="1320" y2="1020" stroke="#d0d7de" stroke-width="1"/>
+  <text x="100" y="1040" font-size="10" fill="#586069">Flow 3</text>
+  <text x="350" y="1040" font-size="10" fill="#586069">Mobile User</text>
+  <text x="550" y="1040" font-size="10" fill="#586069">8 minutes</text>
+  <text x="750" y="1040" font-size="10" fill="#586069">1-2 pages</text>
+  <text x="950" y="1040" font-size="10" fill="#00cc00">70% bookmark</text>
+  <text x="1150" y="1040" font-size="10" fill="#990000">Learn on-the-go</text>
+
+  <!-- Arrow Markers -->
+  <defs>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0066cc"/>
+    </marker>
+    <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00cc00"/>
+    </marker>
+    <marker id="arroworange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ff9900"/>
+    </marker>
+    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#cc0000"/>
+    </marker>
+    <marker id="arrowgray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,71 @@
+[
+  {
+    "slug": "design-principle/solid-principle",
+    "category": "design-principle",
+    "title": "SOLID Principles Deep Dive",
+    "description": "Comprehensive guide to SOLID principles - the foundation of object-oriented design",
+    "content": "# SOLID Principles\n\nSOLID is an acronym representing five fundamental principles of object-oriented programming...",
+    "toc": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "level": 2
+      },
+      {
+        "id": "single-responsibility",
+        "title": "Single Responsibility Principle",
+        "level": 2
+      }
+    ],
+    "metadata": {
+      "readingTime": 25,
+      "lastUpdated": "2025-10-20",
+      "tags": ["solid", "oop", "design-principles"],
+      "difficulty": "beginner",
+      "version": "1.0"
+    },
+    "related": [
+      "design-principle/dry-principle",
+      "design-principle/separation-of-concerns"
+    ]
+  },
+  {
+    "slug": "design-principle/overview",
+    "category": "design-principle",
+    "title": "Design Principles Overview",
+    "description": "Introduction to fundamental software design principles",
+    "content": "# Design Principles\n\nDesign principles are fundamental guidelines...",
+    "toc": [],
+    "metadata": {
+      "readingTime": 10,
+      "lastUpdated": "2025-10-20",
+      "tags": ["design-principles", "overview"],
+      "difficulty": "beginner",
+      "version": "1.0"
+    },
+    "related": [
+      "design-principle/solid-principle"
+    ],
+    "next": "design-principle/solid-principle"
+  },
+  {
+    "slug": "guide/first-principles-approach",
+    "category": "guide",
+    "title": "First Principles Approach",
+    "description": "Understanding the philosophy of first principles thinking in software engineering",
+    "content": "# First Principles Approach\n\nFirst principles thinking means starting with fundamental truths...",
+    "toc": [],
+    "metadata": {
+      "readingTime": 15,
+      "lastUpdated": "2025-10-20",
+      "tags": ["philosophy", "learning", "first-principles"],
+      "difficulty": "beginner",
+      "version": "1.0"
+    },
+    "related": [
+      "guide/learning-path",
+      "design-principle/overview"
+    ],
+    "next": "guide/learning-path"
+  }
+]

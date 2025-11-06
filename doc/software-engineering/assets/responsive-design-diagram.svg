@@ -1,0 +1,277 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1100">
+  <!-- Title -->
+  <text x="700" y="30" font-size="26" font-weight="bold" text-anchor="middle" fill="#24292e">
+    SE Learning System - Responsive Design Breakpoints
+  </text>
+  <text x="700" y="55" font-size="14" text-anchor="middle" fill="#586069">
+    Mobile-First Design • Adaptive Layouts for All Devices
+  </text>
+
+  <!-- ========== BREAKPOINT OVERVIEW ========== -->
+  <rect x="50" y="80" width="1300" height="100" fill="#f6f8fa" stroke="#d0d7de" stroke-width="2" rx="8"/>
+  <text x="700" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#24292e">
+    📐 Breakpoint System
+  </text>
+
+  <!-- Breakpoint Scale -->
+  <rect x="100" y="130" width="1200" height="30" fill="#ffffff" stroke="#d0d7de" stroke-width="1" rx="4"/>
+
+  <!-- Mobile -->
+  <rect x="100" y="130" width="200" height="30" fill="#ff9999" rx="4 0 0 4"/>
+  <text x="200" y="150" font-size="11" font-weight="bold" text-anchor="middle" fill="#ffffff">Mobile</text>
+
+  <!-- Tablet -->
+  <rect x="300" y="130" width="400" height="30" fill="#ffcc99"/>
+  <text x="500" y="150" font-size="11" font-weight="bold" text-anchor="middle" fill="#ffffff">Tablet</text>
+
+  <!-- Desktop -->
+  <rect x="700" y="130" width="600" height="30" fill="#99ccff" rx="0 4 4 0"/>
+  <text x="1000" y="150" font-size="11" font-weight="bold" text-anchor="middle" fill="#ffffff">Desktop</text>
+
+  <!-- Breakpoint Labels -->
+  <line x1="300" y1="130" x2="300" y2="115" stroke="#666666" stroke-width="2"/>
+  <text x="300" y="110" font-size="10" font-weight="bold" text-anchor="middle" fill="#666666">768px</text>
+
+  <line x1="700" y1="130" x2="700" y2="115" stroke="#666666" stroke-width="2"/>
+  <text x="700" y="110" font-size="10" font-weight="bold" text-anchor="middle" fill="#666666">1024px</text>
+
+  <line x1="1100" y1="130" x2="1100" y2="115" stroke="#666666" stroke-width="2"/>
+  <text x="1100" y="110" font-size="10" font-weight="bold" text-anchor="middle" fill="#666666">1440px</text>
+
+  <!-- ========== MOBILE LAYOUT (320px - 767px) ========== -->
+  <rect x="50" y="200" width="380" height="850" fill="#ffe6e6" stroke="#cc0000" stroke-width="3" rx="8"/>
+  <text x="240" y="230" font-size="16" font-weight="bold" text-anchor="middle" fill="#cc0000">
+    📱 Mobile (320px - 767px)
+  </text>
+
+  <!-- Mobile Device Frame -->
+  <rect x="90" y="250" width="300" height="550" fill="#000000" rx="20"/>
+  <rect x="100" y="270" width="280" height="510" fill="#ffffff" rx="10"/>
+
+  <!-- Mobile Header -->
+  <rect x="100" y="270" width="280" height="50" fill="#161b22" rx="10 10 0 0"/>
+  <rect x="115" y="285" width="30" height="30" fill="#58a6ff" rx="4"/>
+  <text x="130" y="306" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">SE</text>
+  <text x="210" y="298" font-size="11" fill="#c9d1d9">SE Learning</text>
+  <text x="210" y="312" font-size="8" fill="#8b949e">System</text>
+
+  <!-- Hamburger Menu -->
+  <rect x="340" y="285" width="25" height="3" fill="#c9d1d9" rx="1"/>
+  <rect x="340" y="293" width="25" height="3" fill="#c9d1d9" rx="1"/>
+  <rect x="340" y="301" width="25" height="3" fill="#c9d1d9" rx="1"/>
+  <text x="290" y="298" font-size="9" fill="#58a6ff">☰</text>
+
+  <!-- Mobile Content Area -->
+  <rect x="100" y="320" width="280" height="460" fill="#0d1117"/>
+
+  <!-- Mobile Content -->
+  <text x="115" y="345" font-size="11" font-weight="bold" fill="#c9d1d9">SOLID Principles</text>
+  <rect x="115" y="350" width="250" height="1" fill="#30363d"/>
+
+  <rect x="115" y="365" width="250" height="60" fill="#1f2937" rx="4"/>
+  <text x="125" y="383" font-size="9" font-weight="bold" fill="#58a6ff">💡 TL;DR</text>
+  <text x="125" y="398" font-size="7" fill="#c9d1d9">SOLID principles make code</text>
+  <text x="125" y="410" font-size="7" fill="#c9d1d9">maintainable and testable...</text>
+
+  <text x="115" y="445" font-size="10" font-weight="bold" fill="#c9d1d9">Overview</text>
+  <text x="115" y="462" font-size="7" fill="#c9d1d9">SOLID is an acronym coined by</text>
+  <text x="115" y="475" font-size="7" fill="#c9d1d9">Robert C. Martin representing</text>
+  <text x="115" y="488" font-size="7" fill="#c9d1d9">five principles of OOP...</text>
+
+  <!-- Mobile Code Block -->
+  <rect x="115" y="505" width="250" height="60" fill="#161b22" stroke="#30363d" stroke-width="1" rx="4"/>
+  <text x="125" y="520" font-size="7" font-family="monospace" fill="#ff7b72">class</text>
+  <text x="155" y="520" font-size="7" font-family="monospace" fill="#79c0ff">User</text>
+  <text x="180" y="520" font-size="7" font-family="monospace" fill="#c9d1d9">:</text>
+  <text x="130" y="535" font-size="7" font-family="monospace" fill="#ff7b72">def</text>
+  <text x="155" y="535" font-size="7" font-family="monospace" fill="#d2a8ff">save</text>
+  <text x="180" y="535" font-size="7" font-family="monospace" fill="#c9d1d9">(self):</text>
+  <text x="140" y="550" font-size="7" font-family="monospace" fill="#c9d1d9">pass</text>
+
+  <!-- Scroll indicator -->
+  <text x="240" y="590" font-size="8" text-anchor="middle" fill="#8b949e">⬇ Scroll for more ⬇</text>
+
+  <!-- TOC Floating Button -->
+  <circle cx="350" cy="750" r="20" fill="#58a6ff" stroke="#ffffff" stroke-width="2"/>
+  <text x="350" y="757" font-size="14" text-anchor="middle" fill="#ffffff">≡</text>
+
+  <!-- Mobile Layout Features -->
+  <rect x="70" y="830" width="340" height="200" fill="#ffffff" stroke="#cc0000" stroke-width="2" rx="6"/>
+  <text x="240" y="855" font-size="12" font-weight="bold" text-anchor="middle" fill="#cc0000">
+    Mobile Features
+  </text>
+
+  <text x="85" y="880" font-size="10" font-weight="bold" fill="#24292e">Layout:</text>
+  <text x="85" y="897" font-size="9" fill="#586069">✓ Single column (full width)</text>
+  <text x="85" y="912" font-size="9" fill="#586069">✓ Hamburger menu for navigation</text>
+  <text x="85" y="927" font-size="9" fill="#586069">✓ Floating TOC button</text>
+  <text x="85" y="942" font-size="9" fill="#586069">✓ No sidebars (slide-in panels)</text>
+
+  <text x="85" y="965" font-size="10" font-weight="bold" fill="#24292e">Interactions:</text>
+  <text x="85" y="982" font-size="9" fill="#586069">✓ Large tap targets (44px min)</text>
+  <text x="85" y="997" font-size="9" fill="#586069">✓ Swipe gestures for navigation</text>
+  <text x="85" y="1012" font-size="9" fill="#586069">✓ Sticky header on scroll</text>
+
+  <!-- ========== TABLET LAYOUT (768px - 1023px) ========== -->
+  <rect x="470" y="200" width="450" height="850" fill="#fff5e6" stroke="#ff9900" stroke-width="3" rx="8"/>
+  <text x="695" y="230" font-size="16" font-weight="bold" text-anchor="middle" fill="#cc6600">
+    📱 Tablet (768px - 1023px)
+  </text>
+
+  <!-- Tablet Device Frame -->
+  <rect x="495" y="250" width="400" height="300" fill="#000000" rx="15"/>
+  <rect x="503" y="260" width="384" height="280" fill="#ffffff" rx="10"/>
+
+  <!-- Tablet Header -->
+  <rect x="503" y="260" width="384" height="40" fill="#161b22" rx="10 10 0 0"/>
+  <rect x="515" y="270" width="25" height="25" fill="#58a6ff" rx="3"/>
+  <text x="527" y="286" font-size="12" font-weight="bold" text-anchor="middle" fill="#ffffff">SE</text>
+  <text x="565" y="280" font-size="10" fill="#c9d1d9">SE Learning System</text>
+  <rect x="690" y="272" width="150" height="20" fill="#0d1117" rx="4"/>
+  <text x="698" y="286" font-size="8" fill="#8b949e">🔍 Search...</text>
+  <circle cx="865" cy="282" r="10" fill="#21262d"/>
+  <text x="865" y="286" font-size="10" text-anchor="middle" fill="#f0f0f0">🌙</text>
+
+  <!-- Tablet Layout (2 columns) -->
+  <rect x="503" y="300" width="384" height="240" fill="#0d1117"/>
+
+  <!-- Left Sidebar (collapsible) -->
+  <rect x="503" y="300" width="120" height="240" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="513" y="320" font-size="9" font-weight="bold" fill="#8b949e">NAVIGATION</text>
+  <text x="513" y="340" font-size="8" fill="#c9d1d9">📖 Getting Started</text>
+  <text x="513" y="355" font-size="8" fill="#58a6ff">▸ Design Principles</text>
+  <text x="523" y="370" font-size="7" fill="#8b949e">• SOLID</text>
+  <text x="523" y="383" font-size="7" fill="#8b949e">• DRY</text>
+  <text x="513" y="400" font-size="8" fill="#c9d1d9">🎨 Patterns</text>
+  <text x="513" y="415" font-size="8" fill="#c9d1d9">🏗️ Architecture</text>
+
+  <!-- Main Content Area -->
+  <rect x="623" y="300" width="264" height="240" fill="#0d1117"/>
+  <text x="633" y="320" font-size="9" font-weight="bold" fill="#c9d1d9">SOLID Principles</text>
+  <rect x="633" y="330" width="244" height="45" fill="#1f2937" rx="3"/>
+  <text x="640" y="345" font-size="7" font-weight="bold" fill="#58a6ff">💡 TL;DR</text>
+  <text x="640" y="358" font-size="6" fill="#c9d1d9">Five principles for maintainable code...</text>
+
+  <text x="633" y="390" font-size="8" font-weight="bold" fill="#c9d1d9">Overview</text>
+  <text x="633" y="405" font-size="6" fill="#c9d1d9">SOLID is an acronym representing...</text>
+
+  <rect x="633" y="420" width="244" height="50" fill="#161b22" rx="3"/>
+  <text x="640" y="433" font-size="6" font-family="monospace" fill="#ff7b72">class</text>
+  <text x="665" y="433" font-size="6" font-family="monospace" fill="#79c0ff">Repository</text>
+  <text x="640" y="445" font-size="6" font-family="monospace" fill="#c9d1d9">  def save():</text>
+
+  <!-- Tap to show TOC -->
+  <rect x="850" y="305" width="30" height="25" fill="#1f2937" stroke="#30363d" stroke-width="1" rx="3"/>
+  <text x="865" y="321" font-size="10" text-anchor="middle" fill="#8b949e">≡</text>
+
+  <!-- Tablet Layout Features -->
+  <rect x="495" y="580" width="400" height="220" fill="#ffffff" stroke="#ff9900" stroke-width="2" rx="6"/>
+  <text x="695" y="605" font-size="12" font-weight="bold" text-anchor="middle" fill="#cc6600">
+    Tablet Features
+  </text>
+
+  <text x="510" y="630" font-size="10" font-weight="bold" fill="#24292e">Layout:</text>
+  <text x="510" y="647" font-size="9" fill="#586069">✓ 2-column layout (sidebar + content)</text>
+  <text x="510" y="662" font-size="9" fill="#586069">✓ Collapsible sidebar (narrow on tap)</text>
+  <text x="510" y="677" font-size="9" fill="#586069">✓ TOC appears as slide-over panel</text>
+  <text x="510" y="692" font-size="9" fill="#586069">✓ Search bar in header</text>
+
+  <text x="510" y="715" font-size="10" font-weight="bold" fill="#24292e">Breakpoint Adjustments:</text>
+  <text x="510" y="732" font-size="9" fill="#586069">• @media (min-width: 768px)</text>
+  <text x="510" y="747" font-size="9" fill="#586069">• Sidebar: 200px → 250px width</text>
+  <text x="510" y="762" font-size="9" fill="#586069">• Font size: 14px → 15px</text>
+  <text x="510" y="777" font-size="9" fill="#586069">• Code blocks: horizontal scroll</text>
+
+  <!-- ========== DESKTOP LAYOUT (1024px+) ========== -->
+  <rect x="960" y="200" width="390" height="850" fill="#e6f3ff" stroke="#0066cc" stroke-width="3" rx="8"/>
+  <text x="1155" y="230" font-size="16" font-weight="bold" text-anchor="middle" fill="#0066cc">
+    🖥️ Desktop (1024px+)
+  </text>
+
+  <!-- Desktop Monitor Frame -->
+  <rect x="975" y="250" width="360" height="220" fill="#333333" rx="8"/>
+  <rect x="980" y="255" width="350" height="200" fill="#ffffff" rx="6"/>
+
+  <!-- Desktop Header -->
+  <rect x="980" y="255" width="350" height="30" fill="#161b22" rx="6 6 0 0"/>
+  <rect x="990" y="263" width="20" height="20" fill="#58a6ff" rx="2"/>
+  <text x="1000" y="277" font-size="10" font-weight="bold" text-anchor="middle" fill="#ffffff">SE</text>
+  <text x="1025" y="272" font-size="8" fill="#c9d1d9">SE Learning System</text>
+  <rect x="1140" y="265" width="100" height="15" fill="#0d1117" rx="3"/>
+  <text x="1147" y="275" font-size="7" fill="#8b949e">🔍 Search...</text>
+  <circle cx="1305" cy="272" r="8" fill="#21262d"/>
+  <text x="1305" y="276" font-size="8" text-anchor="middle" fill="#f0f0f0">🌙</text>
+
+  <!-- Desktop 3-column Layout -->
+  <rect x="980" y="285" width="350" height="170" fill="#0d1117"/>
+
+  <!-- Left Sidebar -->
+  <rect x="980" y="285" width="85" height="170" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="985" y="298" font-size="7" font-weight="bold" fill="#8b949e">NAV</text>
+  <text x="985" y="310" font-size="6" fill="#c9d1d9">📖 Start</text>
+  <text x="985" y="322" font-size="6" fill="#58a6ff">▸ Principles</text>
+  <text x="992" y="332" font-size="5" fill="#8b949e">• SOLID</text>
+  <text x="992" y="340" font-size="5" fill="#8b949e">• DRY</text>
+  <text x="985" y="352" font-size="6" fill="#c9d1d9">🎨 Patterns</text>
+  <text x="985" y="364" font-size="6" fill="#c9d1d9">🏗️ Arch</text>
+
+  <!-- Main Content -->
+  <rect x="1065" y="285" width="185" height="170" fill="#0d1117"/>
+  <text x="1070" y="300" font-size="7" font-weight="bold" fill="#c9d1d9">SOLID Principles</text>
+  <rect x="1070" y="307" width="175" height="30" fill="#1f2937" rx="2"/>
+  <text x="1075" y="318" font-size="5" font-weight="bold" fill="#58a6ff">💡 TL;DR</text>
+  <text x="1075" y="327" font-size="4.5" fill="#c9d1d9">Five principles for code quality...</text>
+
+  <text x="1070" y="350" font-size="6" font-weight="bold" fill="#c9d1d9">Overview</text>
+  <text x="1070" y="361" font-size="5" fill="#c9d1d9">SOLID acronym by Uncle Bob...</text>
+
+  <rect x="1070" y="370" width="175" height="35" fill="#161b22" rx="2"/>
+  <text x="1075" y="380" font-size="5" font-family="monospace" fill="#ff7b72">class</text>
+  <text x="1095" y="380" font-size="5" font-family="monospace" fill="#79c0ff">User</text>
+  <text x="1075" y="390" font-size="5" font-family="monospace" fill="#c9d1d9">  def save():</text>
+
+  <!-- Right TOC Sidebar -->
+  <rect x="1250" y="285" width="80" height="170" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="1255" y="298" font-size="7" font-weight="bold" fill="#8b949e">ON PAGE</text>
+  <text x="1255" y="310" font-size="5" fill="#58a6ff">• Overview</text>
+  <rect x="1252" y="312" width="1" height="8" fill="#58a6ff"/>
+  <text x="1255" y="322" font-size="5" fill="#8b949e">• Why SOLID</text>
+  <text x="1255" y="332" font-size="5" fill="#8b949e">• SRP</text>
+  <text x="1255" y="342" font-size="5" fill="#8b949e">• OCP</text>
+  <text x="1255" y="352" font-size="5" fill="#8b949e">• LSP</text>
+
+  <!-- Monitor Stand -->
+  <rect x="1130" y="470" width="50" height="15" fill="#333333" rx="2"/>
+  <rect x="1115" y="485" width="80" height="5" fill="#333333" rx="2"/>
+
+  <!-- Desktop Layout Features -->
+  <rect x="975" y="520" width="360" height="250" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="1155" y="545" font-size="12" font-weight="bold" text-anchor="middle" fill="#0066cc">
+    Desktop Features
+  </text>
+
+  <text x="990" y="570" font-size="10" font-weight="bold" fill="#24292e">Layout:</text>
+  <text x="990" y="587" font-size="9" fill="#586069">✓ 3-column layout (nav, content, TOC)</text>
+  <text x="990" y="602" font-size="9" fill="#586069">✓ Fixed sidebars (scroll with content)</text>
+  <text x="990" y="617" font-size="9" fill="#586069">✓ Maximum content width: 1440px</text>
+  <text x="990" y="632" font-size="9" fill="#586069">✓ Centered layout on ultra-wide screens</text>
+
+  <text x="990" y="655" font-size="10" font-weight="bold" fill="#24292e">Breakpoint Adjustments:</text>
+  <text x="990" y="672" font-size="9" fill="#586069">• @media (min-width: 1024px)</text>
+  <text x="990" y="687" font-size="9" fill="#586069">• Left sidebar: 280px width</text>
+  <text x="990" y="702" font-size="9" fill="#586069">• Right TOC: 240px width</text>
+  <text x="990" y="717" font-size="9" fill="#586069">• Content: 60-80 characters/line</text>
+  <text x="990" y="732" font-size="9" fill="#586069">• Font size: 16px base</text>
+
+  <text x="990" y="755" font-size="10" font-weight="bold" fill="#24292e">Ultra-Wide (1440px+):</text>
+  <text x="990" y="772" font-size="9" fill="#586069">• Max width container: 1440px</text>
+
+  <!-- ========== RESPONSIVE FEATURES SUMMARY ========== -->
+  <rect x="50" y="1070" width="1300" height="20" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+  <text x="60" y="1084" font-size="10" font-weight="bold" fill="#24292e">CSS Framework:</text>
+  <text x="170" y="1084" font-size="9" fill="#586069">Tailwind CSS or Custom Grid</text>
+  <text x="400" y="1084" font-size="10" font-weight="bold" fill="#24292e">Testing:</text>
+  <text x="470" y="1084" font-size="9" fill="#586069">Chrome DevTools, BrowserStack</text>
+  <text x="700" y="1084" font-size="10" font-weight="bold" fill="#24292e">Performance:</text>
+  <text x="810" y="1084" font-size="9" fill="#00cc00">Google Mobile-Friendly: 100/100</text>
+</svg>

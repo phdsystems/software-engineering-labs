@@ -1,0 +1,137 @@
+[
+  {
+    "category": "Getting Started",
+    "categorySlug": "guide",
+    "description": "Learn the fundamentals and philosophy",
+    "items": [
+      {
+        "title": "First Principles Approach",
+        "slug": "guide/first-principles-approach"
+      },
+      {
+        "title": "Learning Path",
+        "slug": "guide/learning-path"
+      }
+    ]
+  },
+  {
+    "category": "Design Principles",
+    "categorySlug": "design-principle",
+    "description": "Foundation of software design",
+    "items": [
+      {
+        "title": "Overview",
+        "slug": "design-principle/overview"
+      },
+      {
+        "title": "SOLID Principles",
+        "slug": "design-principle/solid-principle"
+      },
+      {
+        "title": "DRY Principle",
+        "slug": "design-principle/dry-principle"
+      },
+      {
+        "title": "Separation of Concerns",
+        "slug": "design-principle/separation-of-concerns"
+      },
+      {
+        "title": "YAGNI & KISS",
+        "slug": "design-principle/yagni-kiss"
+      }
+    ]
+  },
+  {
+    "category": "Design Patterns",
+    "categorySlug": "design-pattern",
+    "description": "Tactical solutions to common problems",
+    "items": [
+      {
+        "title": "Overview",
+        "slug": "design-pattern/overview"
+      },
+      {
+        "title": "Creational Patterns",
+        "slug": "design-pattern/creational-pattern"
+      },
+      {
+        "title": "Structural Patterns",
+        "slug": "design-pattern/structural-pattern"
+      },
+      {
+        "title": "Behavioral Patterns",
+        "slug": "design-pattern/behavioral-pattern"
+      }
+    ]
+  },
+  {
+    "category": "Architecture Patterns",
+    "categorySlug": "architecture-pattern",
+    "description": "System-level design patterns",
+    "items": [
+      {
+        "title": "Overview",
+        "slug": "architecture-pattern/overview"
+      },
+      {
+        "title": "Clean Architecture",
+        "slug": "architecture-pattern/deep-dive-clean-architecture"
+      },
+      {
+        "title": "Microservices",
+        "slug": "architecture-pattern/deep-dive-microservices"
+      },
+      {
+        "title": "Event-Driven Architecture",
+        "slug": "architecture-pattern/deep-dive-event-driven"
+      },
+      {
+        "title": "Serverless Architecture",
+        "slug": "architecture-pattern/deep-dive-serverless"
+      },
+      {
+        "title": "CQRS",
+        "slug": "architecture-pattern/deep-dive-cqrs"
+      },
+      {
+        "title": "Event Sourcing",
+        "slug": "architecture-pattern/deep-dive-event-sourcing"
+      }
+    ]
+  },
+  {
+    "category": "Examples",
+    "categorySlug": "example",
+    "description": "Multi-language implementations",
+    "items": [
+      {
+        "title": "Examples Overview",
+        "slug": "example/overview"
+      },
+      {
+        "title": "Python Examples",
+        "slug": "example/python"
+      },
+      {
+        "title": "Java Examples",
+        "slug": "example/java"
+      },
+      {
+        "title": "Kotlin Examples",
+        "slug": "example/kotlin"
+      },
+      {
+        "title": "TypeScript Examples",
+        "slug": "example/typescript"
+      },
+      {
+        "title": "Go Examples",
+        "slug": "example/go"
+      },
+      {
+        "title": "Rust Examples",
+        "slug": "example/rust"
+      }
+    ]
+  }
+]

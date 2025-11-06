@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <!-- Title -->
+  <text x="600" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#24292e">
+    SE Learning System - Architecture
+  </text>
+
+  <!-- User Browser Layer -->
+  <rect x="50" y="60" width="1100" height="200" fill="#f6f8fa" stroke="#d0d7de" stroke-width="2" rx="8"/>
+  <text x="600" y="85" font-size="18" font-weight="bold" text-anchor="middle" fill="#0066cc">
+    User Browser (Client-Side)
+  </text>
+
+  <!-- Presentation Layer -->
+  <rect x="80" y="100" width="320" height="140" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="240" y="125" font-size="14" font-weight="bold" text-anchor="middle" fill="#24292e">
+    Presentation Layer
+  </text>
+  <text x="95" y="150" font-size="12" fill="#586069">• Navigation &amp; Routing</text>
+  <text x="95" y="170" font-size="12" fill="#586069">• Search UI</text>
+  <text x="95" y="190" font-size="12" fill="#586069">• Theme Toggle (Dark/Light)</text>
+  <text x="95" y="210" font-size="12" fill="#586069">• Responsive Layout</text>
+  <text x="95" y="230" font-size="12" fill="#586069">• React/Vue Components</text>
+
+  <!-- Content Rendering Engine -->
+  <rect x="430" y="100" width="320" height="140" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="590" y="125" font-size="14" font-weight="bold" text-anchor="middle" fill="#24292e">
+    Content Rendering
+  </text>
+  <text x="445" y="150" font-size="12" fill="#586069">• Markdown Parser (MDX)</text>
+  <text x="445" y="170" font-size="12" fill="#586069">• Syntax Highlighter (Prism)</text>
+  <text x="445" y="190" font-size="12" fill="#586069">• Component Renderer</text>
+  <text x="445" y="210" font-size="12" fill="#586069">• Code Tabs &amp; Diagrams</text>
+  <text x="445" y="230" font-size="12" fill="#586069">• Interactive Elements</text>
+
+  <!-- Static Assets -->
+  <rect x="780" y="100" width="320" height="140" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="940" y="125" font-size="14" font-weight="bold" text-anchor="middle" fill="#24292e">
+    Static Assets (CDN)
+  </text>
+  <text x="795" y="150" font-size="12" fill="#586069">• Pre-rendered HTML files</text>
+  <text x="795" y="170" font-size="12" fill="#586069">• Optimized CSS/JS bundles</text>
+  <text x="795" y="190" font-size="12" fill="#586069">• Search index (JSON)</text>
+  <text x="795" y="210" font-size="12" fill="#586069">• Images &amp; diagrams</text>
+  <text x="795" y="230" font-size="12" fill="#586069">• Cached on CDN edge</text>
+
+  <!-- Arrows between browser components -->
+  <path d="M 400 170 L 430 170" stroke="#0066cc" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+  <path d="M 750 170 L 780 170" stroke="#0066cc" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+
+  <!-- Build Pipeline Layer -->
+  <rect x="50" y="300" width="1100" height="180" fill="#fff5e6" stroke="#ff9900" stroke-width="2" rx="8"/>
+  <text x="600" y="325" font-size="18" font-weight="bold" text-anchor="middle" fill="#cc6600">
+    Build Pipeline (CI/CD)
+  </text>
+
+  <rect x="80" y="340" width="1040" height="120" fill="#ffffff" stroke="#ff9900" stroke-width="2" rx="6"/>
+  <text x="95" y="365" font-size="13" font-weight="bold" fill="#24292e">Build Steps:</text>
+  <text x="110" y="385" font-size="12" fill="#586069">1. Read markdown files from doc/template/</text>
+  <text x="110" y="405" font-size="12" fill="#586069">2. Parse frontmatter metadata (YAML)</text>
+  <text x="110" y="425" font-size="12" fill="#586069">3. Generate navigation sidebar hierarchy</text>
+
+  <text x="560" y="385" font-size="12" fill="#586069">4. Build search index (FlexSearch/Algolia)</text>
+  <text x="560" y="405" font-size="12" fill="#586069">5. Compile markdown → optimized HTML/CSS/JS</text>
+  <text x="560" y="425" font-size="12" fill="#586069">6. Deploy to CDN (Vercel/Netlify/Cloudflare)</text>
+
+  <rect x="950" y="360" width="150" height="80" fill="#e6ffe6" stroke="#00cc00" stroke-width="2" rx="4"/>
+  <text x="1025" y="385" font-size="11" font-weight="bold" text-anchor="middle" fill="#006600">
+    Deployment
+  </text>
+  <text x="965" y="405" font-size="10" fill="#006600">• Vercel</text>
+  <text x="965" y="420" font-size="10" fill="#006600">• Netlify</text>
+  <text x="965" y="435" font-size="10" fill="#006600">• GitHub Pages</text>
+
+  <!-- Arrow from browser to build -->
+  <path d="M 600 260 L 600 300" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrowgray)" stroke-dasharray="5,5"/>
+  <text x="610" y="285" font-size="11" fill="#666666">triggers on Git push</text>
+
+  <!-- Source Content Layer -->
+  <rect x="50" y="520" width="1100" height="220" fill="#e6f3ff" stroke="#0066cc" stroke-width="2" rx="8"/>
+  <text x="600" y="545" font-size="18" font-weight="bold" text-anchor="middle" fill="#0066cc">
+    Source Content (Git Repository)
+  </text>
+
+  <!-- Content Categories -->
+  <rect x="80" y="560" width="240" height="160" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="200" y="585" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    Design Principles
+  </text>
+  <text x="95" y="605" font-size="11" fill="#586069">• solid-principle.md</text>
+  <text x="95" y="625" font-size="11" fill="#586069">• dry-principle.md</text>
+  <text x="95" y="645" font-size="11" fill="#586069">• separation-of-concerns.md</text>
+  <text x="95" y="665" font-size="11" fill="#586069">• yagni-kiss.md</text>
+  <text x="95" y="685" font-size="11" fill="#586069">• overview.md</text>
+  <text x="95" y="705" font-size="10" fill="#999999">5 files</text>
+
+  <rect x="340" y="560" width="240" height="160" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="460" y="585" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    Design Patterns
+  </text>
+  <text x="355" y="605" font-size="11" fill="#586069">• creational-pattern.md</text>
+  <text x="355" y="625" font-size="11" fill="#586069">• structural-pattern.md</text>
+  <text x="355" y="645" font-size="11" fill="#586069">• behavioral-pattern.md</text>
+  <text x="355" y="665" font-size="11" fill="#586069">• overview.md</text>
+  <text x="355" y="685" font-size="11" fill="#999999">(Gang of Four patterns)</text>
+  <text x="355" y="705" font-size="10" fill="#999999">4 files</text>
+
+  <rect x="600" y="560" width="240" height="160" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="720" y="585" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    Architecture Patterns
+  </text>
+  <text x="615" y="605" font-size="11" fill="#586069">• clean-architecture.md</text>
+  <text x="615" y="625" font-size="11" fill="#586069">• microservices.md</text>
+  <text x="615" y="645" font-size="11" fill="#586069">• event-driven.md</text>
+  <text x="615" y="665" font-size="11" fill="#586069">• cqrs.md</text>
+  <text x="615" y="685" font-size="11" fill="#586069">• event-sourcing.md</text>
+  <text x="615" y="705" font-size="10" fill="#999999">7 files</text>
+
+  <rect x="860" y="560" width="240" height="160" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="980" y="585" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    Code Examples
+  </text>
+  <text x="875" y="605" font-size="11" fill="#586069">• python/</text>
+  <text x="875" y="625" font-size="11" fill="#586069">• java/</text>
+  <text x="875" y="645" font-size="11" fill="#586069">• kotlin/ go/ rust/</text>
+  <text x="875" y="665" font-size="11" fill="#586069">• groovy/ typescript/</text>
+  <text x="875" y="685" font-size="11" fill="#999999">(Multi-language examples)</text>
+  <text x="875" y="705" font-size="10" fill="#999999">39 files</text>
+
+  <!-- Arrow from build to source -->
+  <path d="M 600 480 L 600 520" stroke="#0066cc" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+  <text x="610" y="505" font-size="11" fill="#0066cc">reads from</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0066cc"/>
+    </marker>
+    <marker id="arrowgray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
+    </marker>
+  </defs>
+
+  <!-- Legend -->
+  <rect x="50" y="760" width="300" height="30" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1" rx="4"/>
+  <text x="60" y="780" font-size="11" font-weight="bold" fill="#24292e">Legend:</text>
+  <rect x="110" y="770" width="15" height="10" fill="#f6f8fa" stroke="#0066cc" stroke-width="2"/>
+  <text x="130" y="780" font-size="10" fill="#586069">Client-Side</text>
+  <rect x="200" y="770" width="15" height="10" fill="#fff5e6" stroke="#ff9900" stroke-width="2"/>
+  <text x="220" y="780" font-size="10" fill="#586069">Build Time</text>
+  <rect x="280" y="770" width="15" height="10" fill="#e6f3ff" stroke="#0066cc" stroke-width="2"/>
+  <text x="300" y="780" font-size="10" fill="#586069">Source</text>
+</svg>

@@ -1,0 +1,269 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <!-- Title -->
+  <text x="700" y="30" font-size="26" font-weight="bold" text-anchor="middle" fill="#24292e">
+    SE Learning System - Search Functionality Flow
+  </text>
+  <text x="700" y="55" font-size="14" text-anchor="middle" fill="#586069">
+    From Query Input to Results Display (&lt;200ms target)
+  </text>
+
+  <!-- ========== BUILD TIME (Left Column) ========== -->
+  <rect x="50" y="80" width="380" height="750" fill="#fff5e6" stroke="#ff9900" stroke-width="2" rx="8"/>
+  <text x="240" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#cc6600">
+    ⚙️ BUILD TIME (Pre-processing)
+  </text>
+
+  <!-- Step 1: Source Content -->
+  <rect x="80" y="130" width="320" height="80" fill="#ffffff" stroke="#ff9900" stroke-width="2" rx="6"/>
+  <text x="240" y="155" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    1. Source Content
+  </text>
+  <text x="95" y="175" font-size="10" fill="#586069">Input: 55 markdown files</text>
+  <text x="95" y="192" font-size="9" fill="#586069">• doc/template/design-principle/*.md</text>
+  <text x="95" y="205" font-size="9" fill="#586069">• doc/template/design-pattern/*.md</text>
+
+  <!-- Arrow -->
+  <path d="M 240 210 L 240 240" stroke="#ff9900" stroke-width="3" fill="none" marker-end="url(#arroworange)"/>
+
+  <!-- Step 2: Content Parser -->
+  <rect x="80" y="240" width="320" height="90" fill="#ffffff" stroke="#ff9900" stroke-width="2" rx="6"/>
+  <text x="240" y="265" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    2. Content Parser
+  </text>
+  <text x="95" y="285" font-size="10" fill="#586069">Extract searchable data:</text>
+  <text x="95" y="302" font-size="9" fill="#586069">✓ Document title</text>
+  <text x="95" y="316" font-size="9" fill="#586069">✓ Headings (H1-H6)</text>
+  <text x="95" y="330" font-size="9" fill="#586069">✓ Paragraph text (strip markdown syntax)</text>
+
+  <!-- Arrow -->
+  <path d="M 240 330 L 240 360" stroke="#ff9900" stroke-width="3" fill="none" marker-end="url(#arroworange)"/>
+
+  <!-- Step 3: Tokenization -->
+  <rect x="80" y="360" width="320" height="100" fill="#ffffff" stroke="#ff9900" stroke-width="2" rx="6"/>
+  <text x="240" y="385" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    3. Tokenization & Stemming
+  </text>
+  <text x="95" y="405" font-size="10" fill="#586069">Process text:</text>
+  <text x="95" y="422" font-size="9" fill="#586069">• Lowercase normalization</text>
+  <text x="95" y="436" font-size="9" fill="#586069">• Remove stop words (the, and, is, etc.)</text>
+  <text x="95" y="450" font-size="9" fill="#586069">• Stemming (running → run, classes → class)</text>
+
+  <!-- Arrow -->
+  <path d="M 240 460 L 240 490" stroke="#ff9900" stroke-width="3" fill="none" marker-end="url(#arroworange)"/>
+
+  <!-- Step 4: Index Building -->
+  <rect x="80" y="490" width="320" height="120" fill="#ffffff" stroke="#ff9900" stroke-width="2" rx="6"/>
+  <text x="240" y="515" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    4. Build Search Index
+  </text>
+  <text x="95" y="535" font-size="10" fill="#586069">Create inverted index:</text>
+  <text x="95" y="552" font-size="9" font-family="monospace" fill="#586069">{</text>
+  <text x="110" y="567" font-size="8" font-family="monospace" fill="#586069">"solid": [doc1, doc3, doc7],</text>
+  <text x="110" y="580" font-size="8" font-family="monospace" fill="#586069">"principle": [doc1, doc2, doc3],</text>
+  <text x="110" y="593" font-size="8" font-family="monospace" fill="#586069">"dependency": [doc1, doc9]</text>
+  <text x="95" y="606" font-size="9" font-family="monospace" fill="#586069">}</text>
+
+  <!-- Arrow -->
+  <path d="M 240 610 L 240 640" stroke="#ff9900" stroke-width="3" fill="none" marker-end="url(#arroworange)"/>
+
+  <!-- Step 5: Export JSON -->
+  <rect x="80" y="640" width="320" height="80" fill="#ffffff" stroke="#ff9900" stroke-width="2" rx="6"/>
+  <text x="240" y="665" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    5. Export Search Index
+  </text>
+  <text x="95" y="685" font-size="10" fill="#586069">Output: search-index.json</text>
+  <text x="95" y="702" font-size="9" fill="#586069">Size: ~500KB (compressed ~80KB)</text>
+  <text x="95" y="715" font-size="9" fill="#586069">Deploy with static site</text>
+
+  <!-- Build Time Summary -->
+  <rect x="80" y="740" width="320" height="70" fill="#e6f3ff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="240" y="765" font-size="11" font-weight="bold" text-anchor="middle" fill="#0066cc">
+    ✅ Build Complete
+  </text>
+  <text x="95" y="785" font-size="9" fill="#586069">Build time: ~30 seconds</text>
+  <text x="95" y="800" font-size="9" fill="#586069">Runs on: Git push (CI/CD)</text>
+
+  <!-- ========== RUNTIME (Right Column) ========== -->
+  <rect x="480" y="80" width="870" height="750" fill="#e6f3ff" stroke="#0066cc" stroke-width="2" rx="8"/>
+  <text x="915" y="110" font-size="16" font-weight="bold" text-anchor="middle" fill="#0066cc">
+    ⚡ RUNTIME (User Interaction)
+  </text>
+
+  <!-- Step 1: User Input -->
+  <rect x="510" y="130" width="380" height="90" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="700" y="155" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    1. User Types Query
+  </text>
+  <text x="525" y="175" font-size="10" fill="#586069">Trigger: ⌘K or click search bar</text>
+  <text x="525" y="192" font-size="9" fill="#586069">User types: "dependency inversion"</text>
+  <rect x="525" y="200" width="350" height="12" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1" rx="6"/>
+  <text x="535" y="209" font-size="9" font-family="monospace" fill="#586069">dependency inversion█</text>
+
+  <!-- Arrow -->
+  <path d="M 700 220 L 700 250" stroke="#0066cc" stroke-width="3" fill="none" marker-end="url(#arrowblue)"/>
+  <text x="710" y="240" font-size="9" fill="#0066cc">onChange (debounced 150ms)</text>
+
+  <!-- Step 2: Debounce -->
+  <rect x="510" y="250" width="380" height="70" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="700" y="275" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    2. Debounce Input
+  </text>
+  <text x="525" y="295" font-size="10" fill="#586069">Wait 150ms after last keystroke</text>
+  <text x="525" y="310" font-size="9" fill="#586069">Prevents search on every character</text>
+
+  <!-- Arrow -->
+  <path d="M 700 320 L 700 350" stroke="#0066cc" stroke-width="3" fill="none" marker-end="url(#arrowblue)"/>
+
+  <!-- Step 3: Query Processing -->
+  <rect x="510" y="350" width="380" height="100" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="700" y="375" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    3. Process Query
+  </text>
+  <text x="525" y="395" font-size="10" fill="#586069">Client-side processing:</text>
+  <text x="525" y="412" font-size="9" fill="#586069">• Lowercase: "dependency inversion"</text>
+  <text x="525" y="426" font-size="9" fill="#586069">• Tokenize: ["dependency", "inversion"]</text>
+  <text x="525" y="440" font-size="9" fill="#586069">• Stem: ["depend", "invers"]</text>
+
+  <!-- Arrow -->
+  <path d="M 700 450 L 700 480" stroke="#0066cc" stroke-width="3" fill="none" marker-end="url(#arrowblue)"/>
+
+  <!-- Step 4: Index Lookup -->
+  <rect x="510" y="480" width="380" height="110" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="700" y="505" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    4. Search Index Lookup
+  </text>
+  <text x="525" y="525" font-size="10" fill="#586069">Query search-index.json (in memory):</text>
+  <text x="525" y="542" font-size="9" font-family="monospace" fill="#586069">index["depend"] → [doc1, doc5, doc9]</text>
+  <text x="525" y="556" font-size="9" font-family="monospace" fill="#586069">index["invers"] → [doc1, doc9]</text>
+  <text x="525" y="570" font-size="9" fill="#586069">Intersection: [doc1, doc9]</text>
+  <text x="525" y="584" font-size="9" fill="#00cc00">⚡ Time: &lt;50ms</text>
+
+  <!-- Arrow -->
+  <path d="M 700 590 L 700 620" stroke="#0066cc" stroke-width="3" fill="none" marker-end="url(#arrowblue)"/>
+
+  <!-- Step 5: Ranking -->
+  <rect x="510" y="620" width="380" height="100" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="700" y="645" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    5. Rank Results
+  </text>
+  <text x="525" y="665" font-size="10" fill="#586069">Score each result:</text>
+  <text x="525" y="682" font-size="9" fill="#586069">• Title match: +10 points</text>
+  <text x="525" y="696" font-size="9" fill="#586069">• Heading match: +5 points</text>
+  <text x="525" y="710" font-size="9" fill="#586069">• Body match: +1 point</text>
+
+  <!-- Arrow -->
+  <path d="M 700 720 L 700 750" stroke="#0066cc" stroke-width="3" fill="none" marker-end="url(#arrowblue)"/>
+
+  <!-- Step 6: Display Results -->
+  <rect x="510" y="750" width="380" height="80" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="700" y="775" font-size="13" font-weight="bold" text-anchor="middle" fill="#24292e">
+    6. Display Results
+  </text>
+  <text x="525" y="795" font-size="10" fill="#586069">Show top 10 results with:</text>
+  <text x="525" y="812" font-size="9" fill="#586069">• Highlighted matches</text>
+  <text x="525" y="825" font-size="9" fill="#586069">• Snippet preview</text>
+
+  <!-- ========== RESULT PREVIEW (Right Side) ========== -->
+  <rect x="920" y="130" width="410" height="700" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="1125" y="160" font-size="14" font-weight="bold" text-anchor="middle" fill="#24292e">
+    Search Results Preview
+  </text>
+
+  <!-- Search Input Display -->
+  <rect x="940" y="180" width="370" height="35" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1" rx="6"/>
+  <text x="955" y="202" font-size="12" fill="#586069">🔍 dependency inversion</text>
+  <text x="1285" y="202" font-size="10" fill="#8b949e">⌘K</text>
+
+  <!-- Results Count -->
+  <text x="940" y="235" font-size="11" fill="#586069">Found 3 results in 48ms</text>
+
+  <!-- Result 1 -->
+  <rect x="940" y="250" width="370" height="110" fill="#e6f3ff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="955" y="270" font-size="12" font-weight="bold" fill="#0066cc">
+    1. SOLID Principles Deep Dive
+  </text>
+  <text x="955" y="287" font-size="9" fill="#586069">design-principle/solid-principle.md</text>
+  <text x="955" y="305" font-size="10" fill="#24292e">
+    ...the <tspan fill="#ff9900" font-weight="bold">Dependency Inversion</tspan> Principle (DIP) states that high-level
+  </text>
+  <text x="955" y="320" font-size="10" fill="#24292e">
+    modules should not depend on low-level modules. Both
+  </text>
+  <text x="955" y="335" font-size="10" fill="#24292e">
+    should depend on abstractions...
+  </text>
+  <text x="955" y="353" font-size="9" fill="#00cc00">⭐ Best match • Score: 25</text>
+
+  <!-- Result 2 -->
+  <rect x="940" y="375" width="370" height="110" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1" rx="6"/>
+  <text x="955" y="395" font-size="12" font-weight="bold" fill="#24292e">
+    2. Clean Architecture Deep Dive
+  </text>
+  <text x="955" y="412" font-size="9" fill="#586069">architecture-pattern/clean-architecture.md</text>
+  <text x="955" y="430" font-size="10" fill="#24292e">
+    ...Clean Architecture relies on <tspan fill="#ff9900" font-weight="bold">Dependency Inversion</tspan> to ensure
+  </text>
+  <text x="955" y="445" font-size="10" fill="#24292e">
+    business logic doesn't depend on frameworks or
+  </text>
+  <text x="955" y="460" font-size="10" fill="#24292e">
+    databases...
+  </text>
+  <text x="955" y="478" font-size="9" fill="#586069">Score: 12</text>
+
+  <!-- Result 3 -->
+  <rect x="940" y="500" width="370" height="110" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1" rx="6"/>
+  <text x="955" y="520" font-size="12" font-weight="bold" fill="#24292e">
+    3. Java Clean Architecture Example
+  </text>
+  <text x="955" y="537" font-size="9" fill="#586069">example/java/clean-architecture-example.md</text>
+  <text x="955" y="555" font-size="10" fill="#24292e">
+    ...this example demonstrates <tspan fill="#ff9900" font-weight="bold">Dependency Inversion</tspan> using
+  </text>
+  <text x="955" y="570" font-size="10" fill="#24292e">
+    Spring Framework's dependency injection. The controller
+  </text>
+  <text x="955" y="585" font-size="10" fill="#24292e">
+    depends on interfaces, not implementations...
+  </text>
+  <text x="955" y="603" font-size="9" fill="#586069">Score: 8</text>
+
+  <!-- No more results -->
+  <text x="940" y="635" font-size="10" fill="#8b949e" font-style="italic">
+    End of results
+  </text>
+
+  <!-- Performance Metrics -->
+  <rect x="940" y="660" width="370" height="150" fill="#e6ffe6" stroke="#00cc00" stroke-width="2" rx="6"/>
+  <text x="1125" y="685" font-size="13" font-weight="bold" text-anchor="middle" fill="#006600">
+    ⚡ Performance Metrics
+  </text>
+
+  <text x="960" y="710" font-size="10" fill="#24292e">Search Performance:</text>
+  <rect x="960" y="720" width="350" height="8" fill="#d0d7de" rx="4"/>
+  <rect x="960" y="720" width="84" height="8" fill="#00cc00" rx="4"/>
+  <text x="1135" y="746" font-size="9" text-anchor="middle" fill="#586069">48ms / 200ms target</text>
+
+  <text x="960" y="765" font-size="9" fill="#586069">• Index load: 5ms (cached)</text>
+  <text x="960" y="780" font-size="9" fill="#586069">• Query processing: 2ms</text>
+  <text x="960" y="795" font-size="9" fill="#586069">• Search execution: 41ms</text>
+
+  <!-- Arrow Markers -->
+  <defs>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0066cc"/>
+    </marker>
+    <marker id="arroworange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ff9900"/>
+    </marker>
+  </defs>
+
+  <!-- Summary Footer -->
+  <rect x="50" y="850" width="1300" height="40" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1" rx="4"/>
+  <text x="60" y="870" font-size="11" font-weight="bold" fill="#24292e">Search Technology:</text>
+  <text x="200" y="870" font-size="10" fill="#586069">FlexSearch or Algolia DocSearch</text>
+  <text x="450" y="870" font-size="11" font-weight="bold" fill="#24292e">Index Size:</text>
+  <text x="550" y="870" font-size="10" fill="#586069">~500KB uncompressed, ~80KB gzipped</text>
+  <text x="850" y="870" font-size="11" font-weight="bold" fill="#24292e">Target Performance:</text>
+  <text x="1020" y="870" font-size="10" fill="#00cc00">&lt;200ms query response</text>
+</svg>

@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000">
+  <!-- Title -->
+  <text x="700" y="30" font-size="26" font-weight="bold" text-anchor="middle" fill="#24292e">
+    SE Learning System - Component Architecture
+  </text>
+  <text x="700" y="55" font-size="14" text-anchor="middle" fill="#586069">
+    React/Vue Component Hierarchy (Docusaurus-based)
+  </text>
+
+  <!-- ========== ROOT APPLICATION ========== -->
+  <rect x="50" y="80" width="1300" height="880" fill="#f6f8fa" stroke="#d0d7de" stroke-width="2" rx="8"/>
+  <text x="70" y="105" font-size="14" font-weight="bold" fill="#0066cc">&lt;App /&gt;</text>
+  <text x="70" y="125" font-size="11" fill="#586069">Root application container • State management • Routing</text>
+
+  <!-- ========== LAYOUT COMPONENTS ========== -->
+  <rect x="80" y="140" width="1240" height="240" fill="#e6f3ff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="100" y="165" font-size="13" font-weight="bold" fill="#0066cc">&lt;Layout /&gt;</text>
+  <text x="100" y="182" font-size="10" fill="#586069">Global layout wrapper • Persistent header/sidebar</text>
+
+  <!-- Header Component -->
+  <rect x="110" y="195" width="360" height="165" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="130" y="220" font-size="12" font-weight="bold" fill="#0066cc">&lt;Header /&gt;</text>
+  <text x="130" y="235" font-size="9" fill="#586069">Top navigation bar • Fixed position</text>
+
+  <!-- Header sub-components -->
+  <rect x="130" y="250" width="160" height="50" fill="#e6f3ff" stroke="#58a6ff" stroke-width="1" rx="4"/>
+  <text x="145" y="268" font-size="10" font-weight="bold" fill="#24292e">&lt;Logo /&gt;</text>
+  <text x="145" y="283" font-size="8" fill="#586069">• Brand image</text>
+  <text x="145" y="295" font-size="8" fill="#586069">• Link to home</text>
+
+  <rect x="300" y="250" width="160" height="50" fill="#e6f3ff" stroke="#58a6ff" stroke-width="1" rx="4"/>
+  <text x="315" y="268" font-size="10" font-weight="bold" fill="#24292e">&lt;SearchBar /&gt;</text>
+  <text x="315" y="283" font-size="8" fill="#586069">• Input field</text>
+  <text x="315" y="295" font-size="8" fill="#586069">• Keyboard shortcut (⌘K)</text>
+
+  <rect x="130" y="310" width="100" height="40" fill="#e6f3ff" stroke="#58a6ff" stroke-width="1" rx="4"/>
+  <text x="145" y="328" font-size="10" font-weight="bold" fill="#24292e">&lt;NavLinks /&gt;</text>
+  <text x="145" y="343" font-size="8" fill="#586069">Docs | GitHub</text>
+
+  <rect x="240" y="310" width="110" height="40" fill="#e6f3ff" stroke="#58a6ff" stroke-width="1" rx="4"/>
+  <text x="255" y="328" font-size="10" font-weight="bold" fill="#24292e">&lt;ThemeToggle /&gt;</text>
+  <text x="255" y="343" font-size="8" fill="#586069">Dark/Light switch</text>
+
+  <rect x="360" y="310" width="100" height="40" fill="#e6f3ff" stroke="#58a6ff" stroke-width="1" rx="4"/>
+  <text x="375" y="328" font-size="10" font-weight="bold" fill="#24292e">&lt;UserMenu /&gt;</text>
+  <text x="375" y="343" font-size="8" fill="#586069">Sign In/Profile</text>
+
+  <!-- Sidebar Component -->
+  <rect x="490" y="195" width="360" height="165" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="510" y="220" font-size="12" font-weight="bold" fill="#0066cc">&lt;Sidebar /&gt;</text>
+  <text x="510" y="235" font-size="9" fill="#586069">Left navigation panel • Collapsible sections</text>
+
+  <!-- Sidebar sub-components -->
+  <rect x="510" y="250" width="160" height="50" fill="#e6f3ff" stroke="#58a6ff" stroke-width="1" rx="4"/>
+  <text x="525" y="268" font-size="10" font-weight="bold" fill="#24292e">&lt;NavTree /&gt;</text>
+  <text x="525" y="283" font-size="8" fill="#586069">• Hierarchical menu</text>
+  <text x="525" y="295" font-size="8" fill="#586069">• Auto-expand active</text>
+
+  <rect x="680" y="250" width="160" height="50" fill="#e6f3ff" stroke="#58a6ff" stroke-width="1" rx="4"/>
+  <text x="695" y="268" font-size="10" font-weight="bold" fill="#24292e">&lt;ProgressWidget /&gt;</text>
+  <text x="695" y="283" font-size="8" fill="#586069">• Learning path tracker</text>
+  <text x="695" y="295" font-size="8" fill="#586069">• Progress bar</text>
+
+  <rect x="510" y="310" width="330" height="40" fill="#e6f3ff" stroke="#58a6ff" stroke-width="1" rx="4"/>
+  <text x="525" y="328" font-size="10" font-weight="bold" fill="#24292e">&lt;CategorySection /&gt;</text>
+  <text x="525" y="343" font-size="8" fill="#586069">Repeatable: Principles, Patterns, Architecture, Examples</text>
+
+  <!-- TOC Component -->
+  <rect x="870" y="195" width="360" height="165" fill="#ffffff" stroke="#0066cc" stroke-width="2" rx="6"/>
+  <text x="890" y="220" font-size="12" font-weight="bold" fill="#0066cc">&lt;TableOfContents /&gt;</text>
+  <text x="890" y="235" font-size="9" fill="#586069">Right sidebar • On-page navigation</text>
+
+  <!-- TOC sub-components -->
+  <rect x="890" y="250" width="160" height="50" fill="#e6f3ff" stroke="#58a6ff" stroke-width="1" rx="4"/>
+  <text x="905" y="268" font-size="10" font-weight="bold" fill="#24292e">&lt;TocList /&gt;</text>
+  <text x="905" y="283" font-size="8" fill="#586069">• H2/H3 headings</text>
+  <text x="905" y="295" font-size="8" fill="#586069">• Scroll spy active</text>
+
+  <rect x="1060" y="250" width="160" height="50" fill="#e6f3ff" stroke="#58a6ff" stroke-width="1" rx="4"/>
+  <text x="1075" y="268" font-size="10" font-weight="bold" fill="#24292e">&lt;ReadingStats /&gt;</text>
+  <text x="1075" y="283" font-size="8" fill="#586069">• Progress indicator</text>
+  <text x="1075" y="295" font-size="8" fill="#586069">• Time remaining</text>
+
+  <rect x="890" y="310" width="330" height="40" fill="#e6f3ff" stroke="#58a6ff" stroke-width="1" rx="4"/>
+  <text x="905" y="328" font-size="10" font-weight="bold" fill="#24292e">&lt;RelatedLinks /&gt;</text>
+  <text x="905" y="343" font-size="8" fill="#586069">Suggested related documents</text>
+
+  <!-- ========== CONTENT COMPONENTS ========== -->
+  <rect x="80" y="400" width="1240" height="280" fill="#fff5e6" stroke="#ff9900" stroke-width="2" rx="6"/>
+  <text x="100" y="425" font-size="13" font-weight="bold" fill="#cc6600">&lt;ContentArea /&gt;</text>
+  <text x="100" y="442" font-size="10" fill="#586069">Main content rendering • Markdown → HTML</text>
+
+  <!-- Document Component -->
+  <rect x="110" y="455" width="600" height="205" fill="#ffffff" stroke="#ff9900" stroke-width="2" rx="6"/>
+  <text x="130" y="480" font-size="12" font-weight="bold" fill="#cc6600">&lt;Document /&gt;</text>
+  <text x="130" y="495" font-size="9" fill="#586069">Article/lesson wrapper • Metadata + content</text>
+
+  <!-- Document sub-components -->
+  <rect x="130" y="510" width="180" height="50" fill="#fff5e6" stroke="#ff9900" stroke-width="1" rx="4"/>
+  <text x="145" y="528" font-size="10" font-weight="bold" fill="#24292e">&lt;Breadcrumbs /&gt;</text>
+  <text x="145" y="543" font-size="8" fill="#586069">Home / Category / Page</text>
+  <text x="145" y="555" font-size="8" fill="#586069">Navigation context</text>
+
+  <rect x="320" y="510" width="180" height="50" fill="#fff5e6" stroke="#ff9900" stroke-width="1" rx="4"/>
+  <text x="335" y="528" font-size="10" font-weight="bold" fill="#24292e">&lt;DocumentHeader /&gt;</text>
+  <text x="335" y="543" font-size="8" fill="#586069">• Title (H1)</text>
+  <text x="335" y="555" font-size="8" fill="#586069">• Metadata (date, tags)</text>
+
+  <rect x="510" y="510" width="180" height="50" fill="#fff5e6" stroke="#ff9900" stroke-width="1" rx="4"/>
+  <text x="525" y="528" font-size="10" font-weight="bold" fill="#24292e">&lt;TldrBox /&gt;</text>
+  <text x="525" y="543" font-size="8" fill="#586069">• Highlighted summary</text>
+  <text x="525" y="555" font-size="8" fill="#586069">• Quick takeaways</text>
+
+  <rect x="130" y="570" width="560" height="80" fill="#fff5e6" stroke="#ff9900" stroke-width="1" rx="4"/>
+  <text x="145" y="590" font-size="10" font-weight="bold" fill="#24292e">&lt;MarkdownContent /&gt;</text>
+  <text x="145" y="605" font-size="8" fill="#586069">Parsed markdown with custom components:</text>
+  <text x="160" y="620" font-size="8" fill="#586069">• &lt;CodeBlock /&gt; - Syntax highlighting + copy button</text>
+  <text x="160" y="633" font-size="8" fill="#586069">• &lt;Admonition /&gt; - Tips, warnings, notes</text>
+  <text x="160" y="646" font-size="8" fill="#586069">• &lt;Diagram /&gt; - Mermaid.js renderer</text>
+
+  <!-- Interactive Components -->
+  <rect x="730" y="455" width="570" height="205" fill="#ffffff" stroke="#ff9900" stroke-width="2" rx="6"/>
+  <text x="750" y="480" font-size="12" font-weight="bold" fill="#cc6600">&lt;InteractiveElements /&gt;</text>
+  <text x="750" y="495" font-size="9" fill="#586069">Enhanced learning components</text>
+
+  <!-- Interactive sub-components -->
+  <rect x="750" y="510" width="180" height="60" fill="#fff5e6" stroke="#ff9900" stroke-width="1" rx="4"/>
+  <text x="765" y="528" font-size="10" font-weight="bold" fill="#24292e">&lt;CodeTabs /&gt;</text>
+  <text x="765" y="543" font-size="8" fill="#586069">• Multi-language examples</text>
+  <text x="765" y="555" font-size="8" fill="#586069">• Tab switching</text>
+  <text x="765" y="567" font-size="8" fill="#586069">• Persistent selection</text>
+
+  <rect x="940" y="510" width="180" height="60" fill="#fff5e6" stroke="#ff9900" stroke-width="1" rx="4"/>
+  <text x="955" y="528" font-size="10" font-weight="bold" fill="#24292e">&lt;CodeBlock /&gt;</text>
+  <text x="955" y="543" font-size="8" fill="#586069">• Prism.js highlighting</text>
+  <text x="955" y="555" font-size="8" fill="#586069">• Line numbers</text>
+  <text x="955" y="567" font-size="8" fill="#586069">• Copy button</text>
+
+  <rect x="1130" y="510" width="160" height="60" fill="#fff5e6" stroke="#ff9900" stroke-width="1" rx="4"/>
+  <text x="1145" y="528" font-size="10" font-weight="bold" fill="#24292e">&lt;Callout /&gt;</text>
+  <text x="1145" y="543" font-size="8" fill="#586069">Types: info, tip,</text>
+  <text x="1145" y="555" font-size="8" fill="#586069">warning, danger</text>
+
+  <rect x="750" y="580" width="180" height="60" fill="#fff5e6" stroke="#ff9900" stroke-width="1" rx="4"/>
+  <text x="765" y="598" font-size="10" font-weight="bold" fill="#24292e">&lt;Diagram /&gt;</text>
+  <text x="765" y="613" font-size="8" fill="#586069">• Mermaid.js graphs</text>
+  <text x="765" y="625" font-size="8" fill="#586069">• Architecture diagrams</text>
+  <text x="765" y="637" font-size="8" fill="#586069">• Flowcharts</text>
+
+  <rect x="940" y="580" width="180" height="60" fill="#fff5e6" stroke="#ff9900" stroke-width="1" rx="4"/>
+  <text x="955" y="598" font-size="10" font-weight="bold" fill="#24292e">&lt;Table /&gt;</text>
+  <text x="955" y="613" font-size="8" fill="#586069">• Responsive tables</text>
+  <text x="955" y="625" font-size="8" fill="#586069">• Sortable columns</text>
+  <text x="955" y="637" font-size="8" fill="#586069">• Mobile scroll</text>
+
+  <rect x="1130" y="580" width="160" height="60" fill="#fff5e6" stroke="#ff9900" stroke-width="1" rx="4"/>
+  <text x="1145" y="598" font-size="10" font-weight="bold" fill="#24292e">&lt;ActionBar /&gt;</text>
+  <text x="1145" y="613" font-size="8" fill="#586069">• Helpful buttons</text>
+  <text x="1145" y="625" font-size="8" fill="#586069">• Prev/Next links</text>
+
+  <!-- ========== FEATURE COMPONENTS ========== -->
+  <rect x="80" y="700" width="600" height="240" fill="#e6ffe6" stroke="#00cc00" stroke-width="2" rx="6"/>
+  <text x="100" y="725" font-size="13" font-weight="bold" fill="#006600">&lt;SearchSystem /&gt;</text>
+  <text x="100" y="742" font-size="10" fill="#586069">Full-text search infrastructure</text>
+
+  <!-- Search Components -->
+  <rect x="110" y="755" width="260" height="165" fill="#ffffff" stroke="#00cc00" stroke-width="2" rx="6"/>
+  <text x="130" y="780" font-size="12" font-weight="bold" fill="#006600">&lt;SearchModal /&gt;</text>
+  <text x="130" y="795" font-size="9" fill="#586069">Popup search interface</text>
+
+  <rect x="150" y="810" width="200" height="50" fill="#e6ffe6" stroke="#00cc00" stroke-width="1" rx="4"/>
+  <text x="165" y="828" font-size="10" font-weight="bold" fill="#24292e">&lt;SearchInput /&gt;</text>
+  <text x="165" y="843" font-size="8" fill="#586069">• Debounced input</text>
+  <text x="165" y="855" font-size="8" fill="#586069">• Keyboard navigation</text>
+
+  <rect x="150" y="870" width="200" height="40" fill="#e6ffe6" stroke="#00cc00" stroke-width="1" rx="4"/>
+  <text x="165" y="888" font-size="10" font-weight="bold" fill="#24292e">&lt;SearchResults /&gt;</text>
+  <text x="165" y="903" font-size="8" fill="#586069">Highlighted matches</text>
+
+  <!-- Search Engine -->
+  <rect x="390" y="755" width="270" height="165" fill="#ffffff" stroke="#00cc00" stroke-width="2" rx="6"/>
+  <text x="410" y="780" font-size="12" font-weight="bold" fill="#006600">&lt;SearchEngine /&gt;</text>
+  <text x="410" y="795" font-size="9" fill="#586069">Backend search logic</text>
+
+  <rect x="410" y="810" width="240" height="40" fill="#e6ffe6" stroke="#00cc00" stroke-width="1" rx="4"/>
+  <text x="425" y="828" font-size="10" font-weight="bold" fill="#24292e">&lt;IndexBuilder /&gt;</text>
+  <text x="425" y="843" font-size="8" fill="#586069">Build-time search index generation</text>
+
+  <rect x="410" y="860" width="110" height="50" fill="#e6ffe6" stroke="#00cc00" stroke-width="1" rx="4"/>
+  <text x="425" y="878" font-size="10" font-weight="bold" fill="#24292e">&lt;Tokenizer /&gt;</text>
+  <text x="425" y="893" font-size="8" fill="#586069">Text processing</text>
+  <text x="425" y="905" font-size="8" fill="#586069">Stemming</text>
+
+  <rect x="530" y="860" width="110" height="50" fill="#e6ffe6" stroke="#00cc00" stroke-width="1" rx="4"/>
+  <text x="545" y="878" font-size="10" font-weight="bold" fill="#24292e">&lt;Ranker /&gt;</text>
+  <text x="545" y="893" font-size="8" fill="#586069">Relevance score</text>
+  <text x="545" y="905" font-size="8" fill="#586069">Result sorting</text>
+
+  <!-- ========== STATE MANAGEMENT ========== -->
+  <rect x="700" y="700" width="620" height="240" fill="#ffe6e6" stroke="#cc0000" stroke-width="2" rx="6"/>
+  <text x="720" y="725" font-size="13" font-weight="bold" fill="#990000">&lt;StateManagement /&gt;</text>
+  <text x="720" y="742" font-size="10" fill="#586069">Global state • Context API / Redux</text>
+
+  <!-- Theme State -->
+  <rect x="720" y="755" width="280" height="80" fill="#ffffff" stroke="#cc0000" stroke-width="2" rx="6"/>
+  <text x="740" y="780" font-size="12" font-weight="bold" fill="#990000">&lt;ThemeContext /&gt;</text>
+  <text x="740" y="795" font-size="9" fill="#586069">Global theme state</text>
+
+  <rect x="740" y="810" width="120" height="15" fill="#ffe6e6" stroke="#cc0000" stroke-width="1" rx="3"/>
+  <text x="750" y="821" font-size="8" fill="#24292e">theme: 'dark' | 'light'</text>
+
+  <rect x="870" y="810" width="110" height="15" fill="#ffe6e6" stroke="#cc0000" stroke-width="1" rx="3"/>
+  <text x="880" y="821" font-size="8" fill="#24292e">toggleTheme()</text>
+
+  <!-- User Progress State -->
+  <rect x="1020" y="755" width="280" height="80" fill="#ffffff" stroke="#cc0000" stroke-width="2" rx="6"/>
+  <text x="1040" y="780" font-size="12" font-weight="bold" fill="#990000">&lt;ProgressContext /&gt;</text>
+  <text x="1040" y="795" font-size="9" fill="#586069">Learning progress tracking</text>
+
+  <rect x="1040" y="810" width="120" height="15" fill="#ffe6e6" stroke="#cc0000" stroke-width="1" rx="3"/>
+  <text x="1050" y="821" font-size="8" fill="#24292e">completedLessons[]</text>
+
+  <rect x="1170" y="810" width="110" height="15" fill="#ffe6e6" stroke="#cc0000" stroke-width="1" rx="3"/>
+  <text x="1180" y="821" font-size="8" fill="#24292e">markComplete()</text>
+
+  <!-- Navigation State -->
+  <rect x="720" y="855" width="280" height="65" fill="#ffffff" stroke="#cc0000" stroke-width="2" rx="6"/>
+  <text x="740" y="880" font-size="12" font-weight="bold" fill="#990000">&lt;NavContext /&gt;</text>
+  <text x="740" y="895" font-size="9" fill="#586069">Navigation state</text>
+
+  <rect x="740" y="905" width="100" height="10" fill="#ffe6e6" stroke="#cc0000" stroke-width="1" rx="3"/>
+  <text x="750" y="913" font-size="7" fill="#24292e">currentPath: string</text>
+
+  <!-- Search State -->
+  <rect x="1020" y="855" width="280" height="65" fill="#ffffff" stroke="#cc0000" stroke-width="2" rx="6"/>
+  <text x="1040" y="880" font-size="12" font-weight="bold" fill="#990000">&lt;SearchContext /&gt;</text>
+  <text x="1040" y="895" font-size="9" fill="#586069">Search state</text>
+
+  <rect x="1040" y="905" width="100" height="10" fill="#ffe6e6" stroke="#cc0000" stroke-width="1" rx="3"/>
+  <text x="1050" y="913" font-size="7" fill="#24292e">query: string</text>
+
+  <rect x="1150" y="905" width="130" height="10" fill="#ffe6e6" stroke="#cc0000" stroke-width="1" rx="3"/>
+  <text x="1160" y="913" font-size="7" fill="#24292e">results: SearchResult[]</text>
+
+  <!-- Component Counts -->
+  <rect x="50" y="975" width="1300" height="15" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+  <text x="60" y="987" font-size="10" font-weight="bold" fill="#24292e">Component Summary:</text>
+  <text x="200" y="987" font-size="9" fill="#586069">Layout: 9 components</text>
+  <text x="360" y="987" font-size="9" fill="#586069">Content: 11 components</text>
+  <text x="540" y="987" font-size="9" fill="#586069">Search: 6 components</text>
+  <text x="710" y="987" font-size="9" fill="#586069">State: 4 contexts</text>
+  <text x="870" y="987" font-size="9" fill="#cc6600">Total: 30 components</text>
+</svg>

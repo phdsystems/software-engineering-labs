@@ -1,0 +1,418 @@
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import {
+  getAllContent,
+  getContentBySlug,
+  getContentByCategory,
+  getNavigation,
+  searchContent,
+  getCategories,
+  getRelatedContent,
+} from '@/lib/api/content'
+
+// Mock file system operations
+vi.mock('fs', () => ({
+  default: {},
+  readdirSync: vi.fn(),
+  readFileSync: vi.fn(),
+  statSync: vi.fn(),
+}))
+
+// Mock markdown processing
+vi.mock('@/lib/markdown', () => ({
+  processMarkdown: vi.fn(),
+}))
+
+// Mock data files
+vi.mock('@/data/mock-content.json', () => ({
+  default: [
+    {
+      slug: 'mock-1',
+      category: 'fundamentals',
+      title: 'Mock Content 1',
+      description: 'Mock description 1',
+      metadata: {
+        readingTime: '5 min read',
+        lastUpdated: '2025-01-01',
+        difficulty: 'beginner',
+      },
+    },
+  ],
+}))
+
+vi.mock('@/data/navigation.json', () => ({
+  default: [
+    {
+      category: 'fundamentals',
+      title: 'Fundamentals',
+      items: [
+        { slug: 'intro', title: 'Introduction', order: 1 },
+      ],
+    },
+  ],
+}))
+
+describe('Content Library', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
+  describe('getAllContent', () => {
+    it('should return content from file system', async () => {
+      const { readdirSync, readFileSync, statSync } = await import('fs')
+      const { processMarkdown } = await import('@/lib/markdown')
+
+      // Mock directory structure
+      vi.mocked(readdirSync).mockReturnValue([
+        { name: 'intro.md', isDirectory: () => false, isFile: () => true },
+      ] as any)
+
+      vi.mocked(readFileSync).mockReturnValue('# Introduction\n\n**Purpose:** Learn the basics')
+
+      vi.mocked(statSync).mockReturnValue({
+        mtime: new Date('2025-01-15'),
+      } as any)
+
+      vi.mocked(processMarkdown).mockResolvedValue({
+        content: '<h1>Introduction</h1>',
+        frontmatter: { difficulty: 'beginner' },
+        toc: [],
+        readingTime: '5 min read',
+      })
+
+      const content = await getAllContent()
+
+      expect(content).toHaveLength(1)
+      expect(content[0]).toMatchObject({
+        slug: 'intro',
+        category: 'guide',
+        title: 'Introduction',
+        description: 'Learn the basics',
+        metadata: {
+          readingTime: '5 min read',
+          lastUpdated: '2025-01-15',
+          difficulty: 'beginner',
+        },
+      })
+    })
+
+    it('should fallback to mock data on error', async () => {
+      const { readdirSync } = await import('fs')
+      vi.mocked(readdirSync).mockImplementation(() => {
+        throw new Error('File system error')
+      })
+
+      const content = await getAllContent()
+
+      expect(content).toHaveLength(1)
+      expect(content[0].slug).toBe('mock-1')
+    })
+
+    it('should skip README.md files', async () => {
+      const { readdirSync, readFileSync, statSync } = await import('fs')
+      const { processMarkdown } = await import('@/lib/markdown')
+
+      vi.mocked(readdirSync).mockReturnValue([
+        { name: 'README.md', isDirectory: () => false, isFile: () => true },
+        { name: 'intro.md', isDirectory: () => false, isFile: () => true },
+      ] as any)
+
+      vi.mocked(readFileSync).mockReturnValue('# Introduction\n\n**Purpose:** Learn')
+      vi.mocked(statSync).mockReturnValue({ mtime: new Date() } as any)
+      vi.mocked(processMarkdown).mockResolvedValue({
+        content: '<h1>Introduction</h1>',
+        frontmatter: {},
+        toc: [],
+        readingTime: '5 min read',
+      })
+
+      const content = await getAllContent()
+
+      expect(content).toHaveLength(1)
+      expect(content[0].slug).toBe('intro')
+    })
+  })
+
+  describe('getContentBySlug', () => {
+    it('should return content for valid slug', async () => {
+      const { readFileSync, statSync, readdirSync } = await import('fs')
+      const { processMarkdown } = await import('@/lib/markdown')
+
+      // Mock getAllContent call
+      vi.mocked(readdirSync).mockReturnValue([
+        { name: 'intro.md', isDirectory: () => false, isFile: () => true },
+      ] as any)
+
+      vi.mocked(readFileSync).mockReturnValue(
+        '# Introduction\n\n**Purpose:** Learn the basics\n\nContent here...'
+      )
+
+      vi.mocked(statSync).mockReturnValue({
+        mtime: new Date('2025-01-15'),
+      } as any)
+
+      vi.mocked(processMarkdown).mockResolvedValue({
+        content: '<h1>Introduction</h1><p>Content here...</p>',
+        frontmatter: { tags: ['react', 'hooks'], difficulty: 'beginner' },
+        toc: [{ id: 'intro', text: 'Introduction', level: 1 }],
+        readingTime: '5 min read',
+      })
+
+      const content = await getContentBySlug('intro')
+
+      expect(content).not.toBeNull()
+      expect(content?.slug).toBe('intro')
+      expect(content?.title).toBe('Introduction')
+      expect(content?.description).toBe('Learn the basics')
+      expect(content?.metadata.tags).toEqual(['react', 'hooks'])
+      expect(content?.toc).toHaveLength(1)
+    })
+
+    it('should return null for nonexistent slug', async () => {
+      const { readFileSync } = await import('fs')
+      vi.mocked(readFileSync).mockImplementation(() => {
+        throw new Error('File not found')
+      })
+
+      const content = await getContentBySlug('nonexistent')
+
+      expect(content).toBeNull()
+    })
+
+    it('should fallback to mock data on error', async () => {
+      const { readFileSync } = await import('fs')
+      vi.mocked(readFileSync).mockImplementation(() => {
+        throw new Error('File system error')
+      })
+
+      const content = await getContentBySlug('mock-1')
+
+      expect(content).not.toBeNull()
+      expect(content?.slug).toBe('mock-1')
+    })
+  })
+
+  describe('getContentByCategory', () => {
+    it('should filter content by category', async () => {
+      const { readdirSync, readFileSync, statSync } = await import('fs')
+      const { processMarkdown } = await import('@/lib/markdown')
+
+      vi.mocked(readdirSync).mockReturnValue([
+        { name: 'fundamentals', isDirectory: () => true, isFile: () => false },
+      ] as any)
+        .mockReturnValueOnce([
+          { name: 'fundamentals', isDirectory: () => true, isFile: () => false },
+        ] as any)
+        .mockReturnValueOnce([
+          { name: 'intro.md', isDirectory: () => false, isFile: () => true },
+        ] as any)
+
+      vi.mocked(readFileSync).mockReturnValue('# Intro\n\n**Purpose:** Test')
+      vi.mocked(statSync).mockReturnValue({ mtime: new Date() } as any)
+      vi.mocked(processMarkdown).mockResolvedValue({
+        content: '<h1>Intro</h1>',
+        frontmatter: {},
+        toc: [],
+        readingTime: '5 min read',
+      })
+
+      const content = await getContentByCategory('fundamentals')
+
+      expect(content).toHaveLength(1)
+      expect(content[0].category).toBe('fundamentals')
+    })
+
+    it('should return empty array for nonexistent category', async () => {
+      const { readdirSync } = await import('fs')
+      vi.mocked(readdirSync).mockImplementation(() => {
+        throw new Error('Not found')
+      })
+
+      const content = await getContentByCategory('nonexistent')
+
+      expect(content).toHaveLength(0)
+    })
+  })
+
+  describe('getNavigation', () => {
+    it('should return navigation structure', async () => {
+      const navigation = await getNavigation()
+
+      expect(navigation).toHaveLength(1)
+      expect(navigation[0]).toMatchObject({
+        category: 'fundamentals',
+        title: 'Fundamentals',
+      })
+      expect(navigation[0].items).toHaveLength(1)
+    })
+  })
+
+  describe('searchContent', () => {
+    it('should return empty array for short queries', async () => {
+      const results = await searchContent('a')
+
+      expect(results).toHaveLength(0)
+    })
+
+    it('should search by title', async () => {
+      const { readdirSync, readFileSync, statSync } = await import('fs')
+      const { processMarkdown } = await import('@/lib/markdown')
+
+      vi.mocked(readdirSync).mockReturnValue([
+        { name: 'intro.md', isDirectory: () => false, isFile: () => true },
+      ] as any)
+
+      vi.mocked(readFileSync).mockReturnValue('# React Hooks\n\n**Purpose:** Learn hooks')
+      vi.mocked(statSync).mockReturnValue({ mtime: new Date() } as any)
+      vi.mocked(processMarkdown).mockResolvedValue({
+        content: '<h1>React Hooks</h1>',
+        frontmatter: {},
+        toc: [],
+        readingTime: '5 min read',
+      })
+
+      const results = await searchContent('react')
+
+      expect(results).toHaveLength(1)
+      expect(results[0].title).toContain('React')
+    })
+
+    it('should search by description', async () => {
+      const { readdirSync, readFileSync, statSync } = await import('fs')
+      const { processMarkdown } = await import('@/lib/markdown')
+
+      vi.mocked(readdirSync).mockReturnValue([
+        { name: 'intro.md', isDirectory: () => false, isFile: () => true },
+      ] as any)
+
+      vi.mocked(readFileSync).mockReturnValue('# Introduction\n\n**Purpose:** Learn React hooks')
+      vi.mocked(statSync).mockReturnValue({ mtime: new Date() } as any)
+      vi.mocked(processMarkdown).mockResolvedValue({
+        content: '<h1>Introduction</h1>',
+        frontmatter: {},
+        toc: [],
+        readingTime: '5 min read',
+      })
+
+      const results = await searchContent('hooks')
+
+      expect(results).toHaveLength(1)
+    })
+
+    it('should be case-insensitive', async () => {
+      const { readdirSync, readFileSync, statSync } = await import('fs')
+      const { processMarkdown } = await import('@/lib/markdown')
+
+      vi.mocked(readdirSync).mockReturnValue([
+        { name: 'intro.md', isDirectory: () => false, isFile: () => true },
+      ] as any)
+
+      vi.mocked(readFileSync).mockReturnValue('# React Hooks\n\n**Purpose:** Test')
+      vi.mocked(statSync).mockReturnValue({ mtime: new Date() } as any)
+      vi.mocked(processMarkdown).mockResolvedValue({
+        content: '<h1>React Hooks</h1>',
+        frontmatter: {},
+        toc: [],
+        readingTime: '5 min read',
+      })
+
+      const results = await searchContent('REACT')
+
+      expect(results).toHaveLength(1)
+    })
+  })
+
+  describe('getCategories', () => {
+    it('should return category information', async () => {
+      const { readdirSync, readFileSync, statSync } = await import('fs')
+      const { processMarkdown } = await import('@/lib/markdown')
+
+      vi.mocked(readdirSync)
+        .mockReturnValueOnce([
+          { name: 'fundamentals', isDirectory: () => true, isFile: () => false },
+        ] as any)
+        .mockReturnValueOnce([
+          { name: 'intro.md', isDirectory: () => false, isFile: () => true },
+          { name: 'basics.md', isDirectory: () => false, isFile: () => true },
+        ] as any)
+
+      vi.mocked(readFileSync).mockReturnValue('# Test\n\n**Purpose:** Test')
+      vi.mocked(statSync).mockReturnValue({ mtime: new Date() } as any)
+      vi.mocked(processMarkdown).mockResolvedValue({
+        content: '<h1>Test</h1>',
+        frontmatter: {},
+        toc: [],
+        readingTime: '5 min read',
+      })
+
+      const categories = await getCategories()
+
+      expect(categories).toHaveLength(1)
+      expect(categories[0]).toMatchObject({
+        slug: 'fundamentals',
+        title: 'Fundamentals',
+        count: 2,
+      })
+    })
+
+    it('should handle hyphenated category names', async () => {
+      const { readdirSync, readFileSync, statSync } = await import('fs')
+      const { processMarkdown } = await import('@/lib/markdown')
+
+      vi.mocked(readdirSync)
+        .mockReturnValueOnce([
+          { name: 'advanced-topics', isDirectory: () => true, isFile: () => false },
+        ] as any)
+        .mockReturnValueOnce([
+          { name: 'test.md', isDirectory: () => false, isFile: () => true },
+        ] as any)
+
+      vi.mocked(readFileSync).mockReturnValue('# Test\n\n**Purpose:** Test')
+      vi.mocked(statSync).mockReturnValue({ mtime: new Date() } as any)
+      vi.mocked(processMarkdown).mockResolvedValue({
+        content: '<h1>Test</h1>',
+        frontmatter: {},
+        toc: [],
+        readingTime: '5 min read',
+      })
+
+      const categories = await getCategories()
+
+      expect(categories[0].title).toBe('Advanced Topics')
+    })
+  })
+
+  describe('getRelatedContent', () => {
+    it('should return empty array when no related content', async () => {
+      const { readFileSync, readdirSync, statSync } = await import('fs')
+      const { processMarkdown } = await import('@/lib/markdown')
+
+      vi.mocked(readdirSync).mockReturnValue([
+        { name: 'intro.md', isDirectory: () => false, isFile: () => true },
+      ] as any)
+
+      vi.mocked(readFileSync).mockReturnValue('# Test\n\n**Purpose:** Test')
+      vi.mocked(statSync).mockReturnValue({ mtime: new Date() } as any)
+      vi.mocked(processMarkdown).mockResolvedValue({
+        content: '<h1>Test</h1>',
+        frontmatter: {},
+        toc: [],
+        readingTime: '5 min read',
+      })
+
+      const related = await getRelatedContent('intro')
+
+      expect(related).toHaveLength(0)
+    })
+
+    it('should return empty array for nonexistent content', async () => {
+      const { readFileSync } = await import('fs')
+      vi.mocked(readFileSync).mockImplementation(() => {
+        throw new Error('Not found')
+      })
+
+      const related = await getRelatedContent('nonexistent')
+
+      expect(related).toHaveLength(0)
+    })
+  })
+})

@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>omniFlow - Enterprise Automation Playbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1d4ed8;
+            --primary-dark: #1e3a8a;
+            --secondary: #0ea5e9;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --lighter: #f1f5f9;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--lighter);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .layout {
+            display: flex;
+            flex: 1;
+        }
+
+        .layout {
+            display: flex;
+            flex: 1;
+        }
+
+        a { color: inherit; }
+
+        header {
+            background: white;
+            box-shadow: 0 1px 10px rgba(15, 23, 42, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 1rem 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.55rem 1.4rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+        }
+
+        .nav-actions a.primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 12px 24px rgba(30, 64, 175, 0.28);
+        }
+
+        .nav-actions a.secondary {
+            background: rgba(37, 99, 235, 0.12);
+            color: var(--primary);
+        }
+
+        .nav-actions a:hover,
+        .nav-actions a:focus {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.22);
+        }
+
+        .book-shell {
+            flex: 1;
+            margin-top: 88px;
+            padding: 24px 0 96px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .toc {
+            display: none;
+        }
+
+        @media (min-width: 1280px) {
+            body {
+                overflow: hidden;
+            }
+
+            nav {
+                padding-left: 260px;
+            }
+
+            .toc {
+                display: block;
+                z-index: 940;
+                position: fixed;
+                top: 108px;
+                left: 28px;
+                width: 210px;
+                max-height: calc(100vh - 160px);
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(16px);
+                border-radius: 18px;
+                box-shadow: 0 24px 52px rgba(15, 23, 42, 0.22);
+                padding: 1.6rem 1.25rem;
+                border: 1px solid rgba(226, 232, 240, 0.85);
+                pointer-events: auto;
+            }
+
+            .toc-header {
+                font-size: 0.85rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.24em;
+                color: var(--primary);
+                margin-bottom: 1.25rem;
+            }
+
+            .toc-list {
+                list-style: none;
+                display: grid;
+                gap: 0.8rem;
+            }
+
+            .toc-item a {
+                text-decoration: none;
+                color: #1e293b;
+                font-size: 0.92rem;
+                display: block;
+                padding: 0.4rem 0.85rem 0.4rem 1.5rem;
+                border-radius: 999px;
+                position: relative;
+                transition: color 0.3s;
+            }
+
+            .toc-item a::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                border: 2px solid var(--primary);
+                background: transparent;
+                transition: background 0.3s, transform 0.3s;
+            }
+
+            .toc-item.active a,
+            .toc-item a:hover,
+            .toc-item a:focus {
+                color: var(--primary);
+            }
+
+            .toc-item.active a {
+                background: rgba(37, 99, 235, 0.12);
+            }
+
+            .toc-item.active a::before {
+                background: var(--primary);
+                transform: translateY(-50%) scale(1.1);
+            }
+
+            .book-shell {
+                padding-left: 260px;
+            }
+        }
+
+        .toc {
+            display: none;
+        }
+
+        @media (min-width: 1280px) {
+            body {
+                overflow: hidden;
+            }
+
+            header nav {
+                padding-left: 260px;
+            }
+
+            .layout {
+                flex: 1;
+            }
+
+            .toc {
+                display: block;
+                position: fixed;
+                top: 108px;
+                left: 28px;
+                width: 210px;
+                max-height: calc(100vh - 160px);
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(14px);
+                border-radius: 18px;
+                box-shadow: 0 22px 46px rgba(15, 23, 42, 0.22);
+                padding: 1.6rem 1.25rem;
+                border: 1px solid rgba(226, 232, 240, 0.8);
+            }
+
+            .toc-header {
+                font-size: 0.85rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.22em;
+                color: var(--primary);
+                margin-bottom: 1.3rem;
+            }
+
+            .toc-list {
+                list-style: none;
+                display: grid;
+                gap: 0.8rem;
+            }
+
+            .toc-item a {
+                text-decoration: none;
+                color: #1f2937;
+                font-size: 0.92rem;
+                display: block;
+                padding-left: 1.5rem;
+                position: relative;
+                transition: color 0.3s;
+            }
+
+            .toc-item a::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                border: 2px solid var(--primary);
+                background: transparent;
+                transition: background 0.3s, transform 0.3s;
+            }
+
+            .toc-item.active a,
+            .toc-item a:hover,
+            .toc-item a:focus {
+                color: var(--primary);
+            }
+
+            .toc-item.active a::before {
+                background: var(--primary);
+                transform: translateY(-50%) scale(1.1);
+            }
+
+            .book-shell {
+                padding-left: 260px;
+            }
+        }
+
+        .book-pages {
+            position: relative;
+            width: 100%;
+            max-width: 1160px;
+            height: calc(100vh - 240px);
+            perspective: 2200px;
+        }
+
+        .page {
+            position: absolute;
+            inset: 0;
+            background: white;
+            border-radius: 22px;
+            box-shadow: 0 30px 90px rgba(15, 23, 42, 0.24);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform-origin: left center;
+            transform: rotateY(-90deg);
+            opacity: 0;
+            pointer-events: none;
+            backface-visibility: hidden;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+        }
+
+        .page::after {
+            content: attr(data-page-label);
+            position: absolute;
+            bottom: 1.3rem;
+            right: 2rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            color: rgba(30, 41, 59, 0.6);
+        }
+
+        .page.is-active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: rotateY(0);
+            z-index: 3;
+        }
+
+        .page.hero {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(124, 58, 237, 0.9));
+            color: white;
+            box-shadow: 0 40px 110px rgba(37, 99, 235, 0.38);
+        }
+
+        .page.hero::after {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .page-inner {
+            flex: 1;
+            overflow-y: auto;
+            padding: 3.2rem 3.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-inner::before,
+        .page-inner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .page-inner::-webkit-scrollbar { width: 8px; }
+        .page-inner::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, 0.55);
+            border-radius: 999px;
+        }
+
+        .page.theme-cover .page-inner::before {
+            background: radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.25), transparent 55%), radial-gradient(circle at 85% 80%, rgba(14, 165, 233, 0.35), transparent 60%);
+        }
+
+        .page.theme-abstract .page-inner::before {
+            background: radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.2), transparent 65%), radial-gradient(circle at 15% 85%, rgba(125, 211, 252, 0.2), transparent 60%);
+        }
+
+        .page.theme-strategy .page-inner::before {
+            background: radial-gradient(circle at 18% 24%, rgba(96, 165, 250, 0.18), transparent 60%), radial-gradient(circle at 82% 78%, rgba(129, 140, 248, 0.18), transparent 65%);
+        }
+
+        .page.theme-delivery .page-inner::before {
+            background: radial-gradient(circle at 20% 25%, rgba(34, 211, 238, 0.18), transparent 60%), radial-gradient(circle at 80% 80%, rgba(45, 212, 191, 0.18), transparent 65%);
+        }
+
+        .page.theme-features .page-inner::before {
+            background: radial-gradient(circle at 82% 20%, rgba(249, 115, 22, 0.14), transparent 65%), radial-gradient(circle at 20% 75%, rgba(250, 204, 21, 0.14), transparent 60%);
+        }
+
+        .page.theme-architecture .page-inner::before {
+            background: radial-gradient(circle at 18% 50%, rgba(165, 180, 252, 0.2), transparent 60%), radial-gradient(circle at 85% 48%, rgba(96, 165, 250, 0.18), transparent 65%);
+        }
+
+        .page.theme-operations .page-inner::before {
+            background: radial-gradient(circle at 25% 25%, rgba(148, 163, 184, 0.18), transparent 60%), radial-gradient(circle at 78% 78%, rgba(224, 231, 255, 0.12), transparent 65%);
+        }
+
+        .page.theme-usecases .page-inner::before {
+            background: radial-gradient(circle at 20% 25%, rgba(52, 211, 153, 0.16), transparent 60%), radial-gradient(circle at 82% 70%, rgba(14, 165, 233, 0.16), transparent 65%);
+        }
+
+        .page.theme-playbook .page-inner::before {
+            background: radial-gradient(circle at 15% 75%, rgba(56, 189, 248, 0.18), transparent 60%), radial-gradient(circle at 80% 25%, rgba(110, 231, 183, 0.16), transparent 65%);
+        }
+
+        .page.theme-references .page-inner::before {
+            background: radial-gradient(circle at 20% 30%, rgba(125, 211, 252, 0.18), transparent 60%), radial-gradient(circle at 82% 70%, rgba(165, 180, 252, 0.18), transparent 65%);
+        }
+
+        .page.theme-abstract .page-inner::after { content: '📘'; top: 2rem; right: 2rem; font-size: 4.5rem; opacity: 0.08; }
+        .page.theme-strategy .page-inner::after { content: '🧭'; top: 2rem; right: 2rem; font-size: 4.5rem; opacity: 0.08; }
+        .page.theme-delivery .page-inner::after { content: '🚚'; top: 2rem; right: 2rem; font-size: 4.5rem; opacity: 0.08; }
+        .page.theme-features .page-inner::after { content: '⚙️'; top: 2rem; right: 2rem; font-size: 4.5rem; opacity: 0.08; }
+        .page.theme-architecture .page-inner::after { content: '🧱'; top: 2rem; right: 2rem; font-size: 4.5rem; opacity: 0.08; }
+        .page.theme-operations .page-inner::after { content: '📈'; top: 2rem; right: 2rem; font-size: 4.5rem; opacity: 0.1; }
+        .page.theme-usecases .page-inner::after { content: '👥'; top: 2rem; right: 2rem; font-size: 4.5rem; opacity: 0.08; }
+        .page.theme-playbook .page-inner::after { content: '📝'; top: 2rem; right: 2rem; font-size: 4.5rem; opacity: 0.08; }
+        .page.theme-references .page-inner::after { content: '📚'; top: 2rem; right: 2rem; font-size: 4.5rem; opacity: 0.08; }
+
+        .hero-content {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.6rem, 4.2vw, 3.7rem);
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.92;
+        }
+
+        .formula {
+            display: inline-block;
+            background: rgba(255,255,255,0.18);
+            padding: 1rem 2.4rem;
+            border-radius: 999px;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2.3rem;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.22);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.7);
+        }
+
+        .btn:hover,
+        .btn:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.28);
+        }
+
+        h2.page-title {
+            font-size: 2.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .callout {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 1.7rem;
+            border: 1px solid rgba(148, 163, 184, 0.32);
+        }
+
+        ul.list {
+            padding-left: 1.3rem;
+            display: grid;
+            gap: 0.75rem;
+            color: #475569;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 18px;
+            padding: 1.8rem;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            height: 100%;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--gradient);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .flow-diagram {
+            background: var(--light);
+            border-radius: 18px;
+            padding: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        .flow-step {
+            display: inline-block;
+            padding: 0.55rem 1.15rem;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            margin: 0.55rem;
+        }
+
+        .arrow {
+            margin: 0 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .metric {
+            background: rgba(15, 23, 42, 0.9);
+            color: white;
+            border-radius: 16px;
+            padding: 1.8rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .metric-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .metric-label {
+            margin-top: 0.4rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            opacity: 0.8;
+        }
+
+        .use-case-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: 0.55rem 1.6rem;
+            border-radius: 999px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .tab.active,
+        .tab:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .use-case-content {
+            background: var(--light);
+            border-radius: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            padding: 2rem;
+        }
+
+        .code-block {
+            background: #0f172a;
+            color: #22d3ee;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 28px 60px rgba(37, 99, 235, 0.35);
+        }
+
+        .references-list {
+            list-style: decimal;
+            padding-left: 1.4rem;
+            display: grid;
+            gap: 0.9rem;
+            color: #334155;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: #475569;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.4rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        footer ul a {
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.75;
+        }
+
+        footer ul a:hover,
+        footer ul a:focus {
+            opacity: 1;
+        }
+
+        .page.flip-in-forward { animation: flipInForward 0.8s ease forwards; }
+        .page.flip-out-forward { animation: flipOutForward 0.8s ease forwards; }
+        .page.flip-in-back { animation: flipInBack 0.8s ease forwards; }
+        .page.flip-out-back { animation: flipOutBack 0.8s ease forwards; }
+
+        @keyframes flipInForward {
+            from { transform: rotateY(90deg); opacity: 0; }
+            to { transform: rotateY(0deg); opacity: 1; }
+        }
+
+        @keyframes flipOutForward {
+            from { transform: rotateY(0deg); opacity: 1; }
+            to { transform: rotateY(-90deg); opacity: 0; }
+        }
+
+        @keyframes flipInBack {
+            from { transform: rotateY(-90deg); opacity: 0; }
+            to { transform: rotateY(0deg); opacity: 1; }
+        }
+
+        @keyframes flipOutBack {
+            from { transform: rotateY(0deg); opacity: 1; }
+            to { transform: rotateY(90deg); opacity: 0; }
+        }
+
+        .book-navigation {
+            position: fixed;
+            bottom: 26px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.95rem 1.6rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(18px);
+            border-radius: 999px;
+            box-shadow: 0 24px 48px rgba(15, 23, 42, 0.26);
+            z-index: 950;
+        }
+
+        .nav-button {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-button:disabled {
+            background: rgba(148, 163, 184, 0.45);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .nav-button:not(:disabled):hover,
+        .nav-button:not(:disabled):focus {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(37, 99, 235, 0.35);
+        }
+
+        .page-indicator {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .page-dots {
+            display: flex;
+            gap: 0.45rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                overflow: auto;
+                height: auto;
+            }
+
+            header {
+                position: relative;
+            }
+
+            .layout {
+                flex-direction: column;
+            }
+
+            .nav-actions {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .book-shell {
+                margin-top: 0;
+                padding: 0;
+            }
+
+            .book-pages {
+                height: auto;
+                perspective: none;
+            }
+
+            .page {
+                position: static;
+                transform: none !important;
+                opacity: 1 !important;
+                pointer-events: auto;
+                border-radius: 0;
+                box-shadow: none;
+                margin-bottom: 2rem;
+            }
+
+            .page::after,
+            .page::before {
+                display: none;
+            }
+
+            .page-inner {
+                padding: 3rem 1.6rem;
+            }
+
+            .book-navigation {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-content h1 { font-size: 2.35rem; }
+            .page-inner { padding: 2.6rem 1.4rem; }
+            .cta-buttons { flex-direction: column; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body {
+                overflow: auto;
+                height: auto;
+            }
+
+            .book-navigation {
+                display: none;
+            }
+
+            .page {
+                transform: none !important;
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">omniFlow</div>
+            <div class="nav-actions">
+                <a class="secondary" href="OmniFlow_Consolidated_BRD.md">Download BRD</a>
+                <a class="primary" href="https://github.com/phdsystems/omniflow" target="_blank" rel="noopener">View Repository</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="layout">
+        <nav class="toc" aria-label="Table of contents">
+            <div class="toc-header">Sections</div>
+            <ul class="toc-list">
+                <li class="toc-item active"><a href="#cover">Cover</a></li>
+                <li class="toc-item"><a href="#abstract">Abstract</a></li>
+                <li class="toc-item"><a href="#strategy">Strategy</a></li>
+                <li class="toc-item"><a href="#delivery">Delivery</a></li>
+                <li class="toc-item"><a href="#features">Capabilities</a></li>
+                <li class="toc-item"><a href="#architecture">Architecture</a></li>
+                <li class="toc-item"><a href="#operations">Operations</a></li>
+                <li class="toc-item"><a href="#use-cases">Use Cases</a></li>
+                <li class="toc-item"><a href="#playbook">Playbook</a></li>
+                <li class="toc-item"><a href="#references">References</a></li>
+            </ul>
+        </nav>
+
+        <main class="book-shell">
+            <div class="book-pages">
+            <!-- Cover -->
+            <section id="cover" class="page hero theme-cover" data-title="Cover">
+                <div class="page-inner">
+                    <div class="hero-content">
+                        <p style="letter-spacing: 0.35em; text-transform: uppercase; font-size: 0.85rem; opacity: 0.75;">Enterprise Automation Playbook</p>
+                        <h1>From Prompt to Production: omniFlow Implementation Blueprint</h1>
+                        <p>Discover how omniFlow converts natural language into governed, testable workflows that scale across engineering, operations, and compliance teams.</p>
+                        <div class="formula">Intent → Manifest → Runtime → Evidence</div>
+                        <div class="cta-buttons">
+                            <a href="https://github.com/phdsystems/omniflow" class="btn btn-primary">Explore Source</a>
+                            <a href="OmniFlow_Consolidated_BRD.md" class="btn btn-secondary">Download BRD</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Abstract -->
+            <section id="abstract" class="page theme-abstract" data-title="Abstract">
+                <div class="page-inner">
+                    <h2 class="page-title">Executive Abstract</h2>
+                    <p style="margin-bottom: 1.4rem;">
+                        omniFlow unifies business intent, engineering execution, and regulatory evidence. By orchestrating planning, tooling, and code generation through a natural language interface, teams reduce delivery cycles while improving compliance posture.
+                    </p>
+                    <div class="callout" style="margin-bottom: 2rem;">
+                        <strong>Key Outcomes</strong>
+                        <ul class="list" style="margin-top: 1rem;">
+                            <li>Hours to Minutes — Translate requirements into manifests and BRDs instantly.</li>
+                            <li>Policy by Default — Enforce guardrails during planning instead of auditing after the fact.</li>
+                            <li>Unified Telemetry — Capture rationale, metrics, and artefacts for every automation.</li>
+                        </ul>
+                    </div>
+                    <p>
+                        This playbook outlines the strategy for deploying omniFlow, details the delivery lifecycle, and highlights operational guardrails required for enterprise adoption.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Strategy -->
+            <section id="strategy" class="page theme-strategy" data-title="Strategy">
+                <div class="page-inner">
+                    <h2 class="page-title">1. Strategy Alignment</h2>
+                    <div class="two-column">
+                        <div>
+                            <h3 style="color: var(--primary); margin-bottom: 0.7rem;">Transformation Goals</h3>
+                            <p>
+                                Organisations pursue omniFlow to streamline cross-team collaboration, improve audit readiness, and accelerate release cadences. The focus is on meeting stakeholders where they are—plain English—and generating consistent implementation artefacts.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--primary); margin-bottom: 0.7rem;">Adoption Principles</h3>
+                            <ul class="list">
+                                <li>Natural language is the single source of intent.</li>
+                                <li>Every workflow embeds policy checks and observability hooks.</li>
+                                <li>Generated assets remain editable and version-controlled.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Delivery Lifecycle -->
+            <section id="delivery" class="page theme-delivery" data-title="Delivery">
+                <div class="page-inner">
+                    <h2 class="page-title">2. Delivery Lifecycle</h2>
+                    <div class="callout" style="margin-bottom: 2rem;">
+                        <strong>2.1 Approach</strong>
+                        <p style="margin-top: 0.8rem;">
+                            omniFlow leverages retrieval-augmented planning to incorporate governance policies, historical manifests, and capability registries into each automation. Prompt analysis determines feasibility, risk, and downstream tooling requirements.
+                        </p>
+                    </div>
+                    <div class="callout" style="margin-bottom: 2rem;">
+                        <strong>2.2 Delivery Stack</strong>
+                        <p style="margin-top: 0.8rem;">
+                            The platform runs as Kubernetes microservices backed by PostgreSQL metadata, Redis caching, and MinIO object storage. Compilers emit ready-to-run projects for Temporal, Argo Workflows, or Apache Airflow including tests and CI/CD scaffolding.
+                        </p>
+                    </div>
+                    <div class="callout">
+                        <strong>2.3 Change Management</strong>
+                        <p style="margin-top: 0.8rem;">
+                            Generated artefacts are checked into Git, reviewed like any code change, and signed using Sigstore to maintain tamper-evident audit trails.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section id="features" class="page theme-features" data-title="Capabilities">
+                <div class="page-inner">
+                    <h2 class="page-title">3. Platform Capabilities</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🗣️</div>
+                            <h3>Prompt to Manifest</h3>
+                            <p>LLM-driven planners capture intent, prerequisite policies, and contextual data to shape executable manifests.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🧩</div>
+                            <h3>Composable Tooling</h3>
+                            <p>Recommended SDKs, adapters, and lockfiles are curated based on compliance constraints and proven success paths.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🛡️</div>
+                            <h3>Embedded Governance</h3>
+                            <p>Versioned OPA/Rego policies are applied during planning, ensuring regulatory requirements travel with every workflow.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🧾</div>
+                            <h3>Automatic Documentation</h3>
+                            <p>Produce BRDs, acceptance criteria, and cost breakdowns alongside source code and deployment manifests.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Observability Hooks</h3>
+                            <p>Dashboards, metrics, and tracing are bundled with each workflow to accelerate operations handoff.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🧾</div>
+                            <h3>Immutable Evidence</h3>
+                            <p>Decisions capture rationale, confidence, and policy versions; artefacts are signed for non-repudiation.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Architecture -->
+            <section id="architecture" class="page theme-architecture" data-title="Architecture">
+                <div class="page-inner">
+                    <h2 class="page-title">4. Reference Architecture</h2>
+                    <div class="flow-diagram" style="margin-bottom: 2rem;">
+                        <span class="flow-step">Prompt Intake</span>
+                        <span class="arrow">→</span>
+                        <span class="flow-step">Policy-Guided Planner</span>
+                        <span class="arrow">→</span>
+                        <span class="flow-step">Manifest</span>
+                        <span class="arrow">→</span>
+                        <span class="flow-step">Compiler</span>
+                        <span class="arrow">→</span>
+                        <span class="flow-step">Runtime</span>
+                        <br><br>
+                        <span style="margin-left: 120px;">↓</span>
+                        <span style="margin-left: 120px;">↓</span>
+                        <span style="margin-left: 120px;">↓</span>
+                        <br>
+                        <span class="flow-step" style="margin-left: 60px;">BRD</span>
+                        <span class="flow-step" style="margin-left: 60px;">Toolset</span>
+                        <span class="flow-step" style="margin-left: 60px;">Release Plan</span>
+                        <br><br>
+                        <span style="margin-left: 300px;">↓</span>
+                        <br>
+                        <span class="flow-step" style="margin-left: 250px;">Audit + Learning Loop</span>
+                    </div>
+                    <div class="callout" style="margin-bottom: 1.5rem;">
+                        <strong>Control Plane</strong>
+                        <p style="margin-top: 0.75rem;">
+                            Auth, policy evaluation, manifest registry, and capability catalogues operate as shared services with federation options for regulated environments.
+                        </p>
+                    </div>
+                    <div class="callout">
+                        <strong>Execution Plane</strong>
+                        <p style="margin-top: 0.75rem;">
+                            Runtime adapters manage deployments across Temporal, Argo Workflows, and Apache Airflow with consistent telemetry exporters.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Operations -->
+            <section id="operations" class="page theme-operations" data-title="Operations">
+                <div class="page-inner" style="background: var(--dark); color: white;">
+                    <h2 class="page-title">5. Operational Excellence</h2>
+                    <p style="margin-bottom: 2rem; opacity: 0.85;">
+                        Reliability metrics ensure omniFlow can serve both interactive planners and high-volume execution workloads.
+                    </p>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value">99.9%</div>
+                            <div class="metric-label">Availability</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">≤4s</div>
+                            <div class="metric-label">Plan Latency p95</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">10k</div>
+                            <div class="metric-label">Concurrent Runs</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">≤1s</div>
+                            <div class="metric-label">Step Latency p95</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Use Cases -->
+            <section id="use-cases" class="page theme-usecases" data-title="Use Cases">
+                <div class="page-inner">
+                    <h2 class="page-title">6. Persona Playbacks</h2>
+                    <div class="use-case-tabs">
+                        <div class="tab active">Product Owners</div>
+                        <div class="tab">Developers</div>
+                        <div class="tab">DevOps</div>
+                        <div class="tab">Compliance</div>
+                    </div>
+                    <div class="use-case-content">
+                        <h3>For Product Owners</h3>
+                        <p>Capture requirements and approve artefacts in one loop:</p>
+                        <div class="code-block">
+# Describe your initiative
+oh plan --prompt "Launch a growth experiment with feature flags and analytics instrumentation"
+
+# omniFlow delivers
+→ Business Requirements Document
+→ Success metrics &amp; KPIs
+→ Recommended toolset &amp; budget
+→ Implementation manifest
+                        </div>
+                        <p>Stakeholders can iterate over generated BRDs, accept annotations, and sign off without leaving the workspace.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Playbook -->
+            <section id="playbook" class="page theme-playbook" data-title="Playbook">
+                <div class="page-inner">
+                    <h2 class="page-title">7. Adoption Playbook</h2>
+                    <div class="two-column" style="margin-bottom: 2rem;">
+                        <div class="callout">
+                            <strong>Pilot</strong>
+                            <p style="margin-top: 0.7rem;">Start with an internal automation guild. Migrate 3–5 workflows, capture baseline metrics, and refine guardrails.</p>
+                        </div>
+                        <div class="callout">
+                            <strong>Scale</strong>
+                            <p style="margin-top: 0.7rem;">Roll out capability catalogues, integrate with CI/CD, and adopt policy versioning to support regulated workloads.</p>
+                        </div>
+                    </div>
+                    <div class="cta-section">
+                        <h3 style="margin-bottom: 0.8rem;">Next Steps</h3>
+                        <p style="margin-bottom: 1.5rem;">Clone the repository, explore manifest samples, and review the consolidated BRD to accelerate onboarding.</p>
+                        <div class="cta-buttons">
+                            <a href="https://github.com/phdsystems/omniflow" class="btn btn-primary">GitHub</a>
+                            <a href="OmniFlow_Consolidated_BRD.md" class="btn btn-secondary" style="border-color: rgba(255,255,255,0.8);">Read BRD</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- References -->
+            <section id="references" class="page theme-references" data-title="References">
+                <div class="page-inner">
+                    <h2 class="page-title">8. References</h2>
+                    <ol class="references-list">
+                        <li>Hlongwane, A. (2025). "omniFlow Consolidated Business Requirements Document." Version 2.0. <a href="OmniFlow_Consolidated_BRD.md" style="color: var(--primary); text-decoration: none;">[View Document]</a></li>
+                        <li>omniFlow Project Repository. (2025). GitHub. <a href="https://github.com/phdsystems/omniflow" target="_blank" style="color: var(--primary); text-decoration: none;">[Repository]</a></li>
+                        <li>Temporal Technologies. (2024). "Temporal Workflow Engine Documentation." <a href="https://docs.temporal.io/" target="_blank" style="color: var(--primary); text-decoration: none;">[docs.temporal.io]</a></li>
+                        <li>Argo Project. (2024). "Argo Workflows." <a href="https://argoproj.github.io/argo-workflows/" target="_blank" style="color: var(--primary); text-decoration: none;">[argoproj.github.io]</a></li>
+                        <li>Apache Software Foundation. (2024). "Apache Airflow Documentation." Version 2.7.x. <a href="https://airflow.apache.org/docs/" target="_blank" style="color: var(--primary); text-decoration: none;">[airflow.apache.org]</a></li>
+                        <li>Open Policy Agent. (2024). "Policy-based Control for Cloud Native Environments." <a href="https://www.openpolicyagent.org/docs/" target="_blank" style="color: var(--primary); text-decoration: none;">[openpolicyagent.org]</a></li>
+                        <li>OpenTelemetry. (2024). "Observability Framework." <a href="https://opentelemetry.io/docs/" target="_blank" style="color: var(--primary); text-decoration: none;">[opentelemetry.io]</a></li>
+                        <li>Prometheus. (2024). "Monitoring Ecosystem." <a href="https://prometheus.io/docs/" target="_blank" style="color: var(--primary); text-decoration: none;">[prometheus.io]</a></li>
+                        <li>Grafana Labs. (2024). "Operational Dashboards." <a href="https://grafana.com/docs/" target="_blank" style="color: var(--primary); text-decoration: none;">[grafana.com]</a></li>
+                        <li>Helm. (2024). "Kubernetes Package Manager." <a href="https://helm.sh/docs/" target="_blank" style="color: var(--primary); text-decoration: none;">[helm.sh]</a></li>
+                        <li>GitHub. (2024). "GitHub Actions Documentation." <a href="https://docs.github.com/en/actions" target="_blank" style="color: var(--primary); text-decoration: none;">[docs.github.com]</a></li>
+                        <li>Docker. (2024). "Docker Documentation." <a href="https://docs.docker.com/" target="_blank" style="color: var(--primary); text-decoration: none;">[docs.docker.com]</a></li>
+                        <li>PostgreSQL. (2024). "PostgreSQL 14 Documentation." <a href="https://www.postgresql.org/docs/14/" target="_blank" style="color: var(--primary); text-decoration: none;">[postgresql.org]</a></li>
+                        <li>Redis. (2024). "Redis Documentation." <a href="https://redis.io/docs/" target="_blank" style="color: var(--primary); text-decoration: none;">[redis.io]</a></li>
+                        <li>MinIO. (2024). "Object Storage." <a href="https://min.io/docs/minio/linux/index.html" target="_blank" style="color: var(--primary); text-decoration: none;">[min.io]</a></li>
+                        <li>HashiCorp Vault. (2024). "Secrets Management." <a href="https://developer.hashicorp.com/vault/docs" target="_blank" style="color: var(--primary); text-decoration: none;">[hashicorp.com]</a></li>
+                        <li>Sigstore. (2024). "Software Supply Chain Security." <a href="https://www.sigstore.dev/docs/" target="_blank" style="color: var(--primary); text-decoration: none;">[sigstore.dev]</a></li>
+                        <li>SLSA. (2024). "Supply-chain Levels for Software Artifacts." <a href="https://slsa.dev/" target="_blank" style="color: var(--primary); text-decoration: none;">[slsa.dev]</a></li>
+                    </ol>
+                    <footer>
+                        <ul>
+                            <li><a href="https://github.com/phdsystems/omniflow">GitHub</a></li>
+                            <li><a href="OmniFlow_Consolidated_BRD.md">Documentation</a></li>
+                            <li><a href="README.md">README</a></li>
+                        </ul>
+                        <p>© 2025 omniFlow. Owner: Amu Hlongwane</p>
+                    </footer>
+                </div>
+            </section>
+        </div>
+    </main>
+    </div>
+
+    <div class="book-navigation" aria-label="Page navigation">
+        <button class="nav-button prev" type="button" aria-label="Previous page">‹</button>
+        <div class="page-indicator"><span class="current">1</span>/<span class="total">8</span></div>
+        <div class="page-dots" role="tablist" aria-label="Sections"></div>
+        <button class="nav-button next" type="button" aria-label="Next page">›</button>
+    </div>
+
+    <script>
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const stackedQuery = window.matchMedia('(max-width: 1024px)');
+        const pages = Array.from(document.querySelectorAll('.page'));
+        const bookNavigation = document.querySelector('.book-navigation');
+        const prevButton = document.querySelector('.nav-button.prev');
+        const nextButton = document.querySelector('.nav-button.next');
+        const pageIndicator = document.querySelector('.page-indicator .current');
+        const totalIndicator = document.querySelector('.page-indicator .total');
+        const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+        const tocLinks = Array.from(document.querySelectorAll('.toc-item a'));
+        const dotsContainer = document.querySelector('.page-dots');
+
+        totalIndicator.textContent = pages.length;
+
+        const pageIndexById = new Map();
+        pages.forEach((page, index) => {
+            pageIndexById.set(page.id, index);
+            page.dataset.pageLabel = `Page ${index + 1} / ${pages.length}`;
+        });
+
+        function buildDots() {
+            dotsContainer.innerHTML = '';
+            pages.forEach((page, index) => {
+                const dot = document.createElement('button');
+                dot.className = 'dot' + (index === 0 ? ' active' : '');
+                dot.type = 'button';
+                dot.setAttribute('aria-label', `Go to ${page.dataset.title || page.id}`);
+                dot.dataset.target = page.id;
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        let pagingEnabled = !prefersReducedMotion && !stackedQuery.matches;
+
+        if (pagingEnabled) {
+            buildDots();
+        } else {
+            bookNavigation.style.display = 'none';
+        }
+
+        let activeIndex = 0;
+        pages[activeIndex].classList.add('is-active');
+        pageIndicator.textContent = activeIndex + 1;
+
+        function setPageLabel(page, index) {
+            page.dataset.pageLabel = `Page ${index + 1} / ${pages.length}`;
+        }
+
+        function updateNavigation() {
+            if (!pagingEnabled) {
+                pages.forEach((page) => {
+                    page.removeAttribute('aria-hidden');
+                    page.classList.add('is-active');
+                    page.style.transform = '';
+                    page.style.transformOrigin = '';
+                });
+                return;
+            }
+
+            pages.forEach((page, index) => setPageLabel(page, index));
+            pageIndicator.textContent = activeIndex + 1;
+            prevButton.disabled = activeIndex === 0;
+            nextButton.disabled = activeIndex === pages.length - 1;
+
+            const dots = Array.from(document.querySelectorAll('.dot'));
+            dots.forEach((dot) => {
+                dot.classList.toggle('active', pageIndexById.get(dot.dataset.target) === activeIndex);
+            });
+
+            const tocItems = Array.from(document.querySelectorAll('.toc-item'));
+            tocItems.forEach((item) => {
+                const link = item.querySelector('a');
+                const targetId = link?.getAttribute('href')?.substring(1);
+                const targetIndex = targetId ? pageIndexById.get(targetId) : undefined;
+                item.classList.toggle('active', typeof targetIndex === 'number' && targetIndex === activeIndex);
+            });
+
+            pages.forEach((page, index) => {
+                const isActive = index === activeIndex;
+                page.setAttribute('aria-hidden', String(!isActive));
+                if (!isActive) {
+                    page.style.transform = '';
+                    page.style.transformOrigin = '';
+                }
+            });
+        }
+
+        function animateTransition(nextIndex) {
+            if (!pagingEnabled) {
+                return;
+            }
+            if (nextIndex === activeIndex) {
+                return;
+            }
+
+            const direction = nextIndex > activeIndex ? 'forward' : 'back';
+            const currentPage = pages[activeIndex];
+            const nextPage = pages[nextIndex];
+
+            currentPage.classList.remove('flip-in-forward', 'flip-in-back');
+            nextPage.classList.remove('flip-out-forward', 'flip-out-back');
+
+            const exitClass = direction === 'forward' ? 'flip-out-forward' : 'flip-out-back';
+            const enterClass = direction === 'forward' ? 'flip-in-forward' : 'flip-in-back';
+
+            if (direction === 'forward') {
+                currentPage.style.transformOrigin = 'left center';
+                nextPage.style.transformOrigin = 'right center';
+                nextPage.style.transform = 'rotateY(90deg)';
+            } else {
+                currentPage.style.transformOrigin = 'right center';
+                nextPage.style.transformOrigin = 'left center';
+                nextPage.style.transform = 'rotateY(-90deg)';
+            }
+
+            nextPage.classList.add('is-active', enterClass);
+            nextPage.setAttribute('aria-hidden', 'false');
+            nextPage.addEventListener('animationend', () => {
+                nextPage.classList.remove(enterClass);
+                nextPage.style.transform = '';
+                nextPage.style.transformOrigin = '';
+            }, { once: true });
+
+            currentPage.classList.add(exitClass);
+            currentPage.addEventListener('animationend', () => {
+                currentPage.classList.remove(exitClass, 'is-active');
+                currentPage.setAttribute('aria-hidden', 'true');
+                currentPage.style.transform = '';
+                currentPage.style.transformOrigin = '';
+            }, { once: true });
+
+            activeIndex = nextIndex;
+            updateNavigation();
+        }
+
+        prevButton.addEventListener('click', () => {
+            animateTransition(Math.max(0, activeIndex - 1));
+        });
+
+        nextButton.addEventListener('click', () => {
+            animateTransition(Math.min(pages.length - 1, activeIndex + 1));
+        });
+
+        dotsContainer.addEventListener('click', (event) => {
+            if (!(event.target instanceof HTMLButtonElement) || !pagingEnabled) {
+                return;
+            }
+            const targetId = event.target.dataset.target;
+            const targetIndex = pageIndexById.get(targetId);
+            if (typeof targetIndex === 'number') {
+                animateTransition(targetIndex);
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (!pagingEnabled) {
+                return;
+            }
+            if (event.key === 'ArrowRight') {
+                animateTransition(Math.min(pages.length - 1, activeIndex + 1));
+            }
+            if (event.key === 'ArrowLeft') {
+                animateTransition(Math.max(0, activeIndex - 1));
+            }
+        });
+
+        function handleAnchorNavigation(event, link) {
+            const hash = link.getAttribute('href');
+            if (!hash || !hash.startsWith('#')) {
+                return;
+            }
+            const targetId = hash.substring(1);
+            const targetIndex = pageIndexById.get(targetId);
+
+            if (typeof targetIndex === 'number') {
+                if (pagingEnabled) {
+                    event.preventDefault();
+                    animateTransition(targetIndex);
+                } else {
+                    activeIndex = targetIndex;
+                    updateNavigation();
+                }
+            }
+        }
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', (event) => handleAnchorNavigation(event, link));
+        });
+
+        tocLinks.forEach((link) => {
+            link.addEventListener('click', (event) => handleAnchorNavigation(event, link));
+        });
+
+        stackedQuery.addEventListener('change', (event) => {
+            const shouldEnable = !prefersReducedMotion && !event.matches;
+
+            if (shouldEnable && !pagingEnabled) {
+                pagingEnabled = true;
+                bookNavigation.style.display = '';
+                buildDots();
+                pages.forEach((page, index) => {
+                    page.classList.toggle('is-active', index === activeIndex);
+                    page.setAttribute('aria-hidden', index === activeIndex ? 'false' : 'true');
+                    page.style.transform = '';
+                    page.style.transformOrigin = '';
+                });
+                updateNavigation();
+            }
+
+            if (!shouldEnable && pagingEnabled) {
+                pagingEnabled = false;
+                bookNavigation.style.display = 'none';
+                pages.forEach((page) => {
+                    page.classList.add('is-active');
+                    page.removeAttribute('aria-hidden');
+                    page.classList.remove('flip-in-forward', 'flip-in-back', 'flip-out-forward', 'flip-out-back');
+                    page.style.transform = '';
+                    page.style.transformOrigin = '';
+                });
+            }
+        });
+
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                const content = document.querySelector('.use-case-content');
+                const tabText = this.textContent;
+
+                const useCases = {
+                    'Product Owners': {
+                        title: 'For Product Owners',
+                        description: 'Capture requirements and approve artefacts in one loop:',
+                        code: `# Describe your initiative\noh plan --prompt "Launch a growth experiment with feature flags and analytics instrumentation"\n\n# omniFlow delivers\n→ Business Requirements Document\n→ Success metrics & KPIs\n→ Recommended toolset & budget\n→ Implementation manifest`,
+                        details: 'Stakeholders iterate on generated artefacts, add comments, and sign off within minutes.'
+                    },
+                    'Developers': {
+                        title: 'For Developers',
+                        description: 'Provision scaffolded repositories with tests and infrastructure:',
+                        code: `# Create runtime project\noh compile --in manifest/last.json --target airflow\n\n# Fill in domain logic\n$EDITOR dags/customer_onboarding.py\n\n# Validate and ship\npytest && poetry run deploy`,
+                        details: 'Skip boilerplate and focus on domain code. omniFlow keeps docs and manifests in sync with Git.'
+                    },
+                    'DevOps': {
+                        title: 'For DevOps Teams',
+                        description: 'Operate with confidence using baked-in observability:',
+                        code: `# Deploy with GitOps\nflux reconcile kustomization omniflow\n\n# Monitor rollout\n→ Grafana dashboards\n→ Prometheus alerts\n→ Tempo traces\n→ Cost analytics`,
+                        details: 'Progressive delivery, automatic rollbacks, and SLO tracking ship with every workflow.'
+                    },
+                    'Compliance': {
+                        title: 'For Compliance Teams',
+                        description: 'Review immutable audit trails per automation:',
+                        code: `# Inspect evidence bundle\nls audits/customer-onboarding\n
+# Verify policy status
+cat audits/customer-onboarding/policy.json
+`,
+                        details: 'Evidence bundles include signed manifests, policy decisions, and traceable change logs.'
+                    }
+                };
+
+                const useCase = useCases[tabText];
+                if (useCase) {
+                    content.innerHTML = `
+                        <h3>${useCase.title}</h3>
+                        <p>${useCase.description}</p>
+                        <div class="code-block">${useCase.code}</div>
+                        <p>${useCase.details}</p>
+                    `;
+                }
+            });
+        });
+
+        updateNavigation();
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+name: Link Validation
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'doc/**/*.md'
+      - 'README.md'
+      - 'link-checker.py'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'doc/**/*.md'
+      - 'README.md'
+      - 'link-checker.py'
+  schedule:
+    # Run weekly on Monday at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  validate-links:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Run link checker
+      id: link_check
+      run: |
+        echo "Running link validation..."
+        python3 scripts/link-checker.py doc/ > link-report.txt 2>&1
+        exit_code=$?
+
+        # Always show the report
+        cat link-report.txt
+
+        # Extract statistics
+        broken_links=$(grep "Broken links:" link-report.txt | grep -oP '\d+' | head -1)
+        total_links=$(grep "Total internal links:" link-report.txt | grep -oP '\d+' | head -1)
+        success_rate=$(grep "Success rate:" link-report.txt | grep -oP '\d+\.\d+' | head -1)
+
+        # Set outputs for summary
+        echo "broken_links=$broken_links" >> $GITHUB_OUTPUT
+        echo "total_links=$total_links" >> $GITHUB_OUTPUT
+        echo "success_rate=$success_rate" >> $GITHUB_OUTPUT
+
+        # Exit with appropriate code
+        exit $exit_code
+
+    - name: Upload link report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: link-validation-report
+        path: link-report.txt
+        retention-days: 30
+
+    - name: Comment on PR (if failures)
+      if: failure() && github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const report = fs.readFileSync('link-report.txt', 'utf8');
+
+          // Extract key information
+          const brokenLinks = '${{ steps.link_check.outputs.broken_links }}';
+          const totalLinks = '${{ steps.link_check.outputs.total_links }}';
+          const successRate = '${{ steps.link_check.outputs.success_rate }}';
+
+          // Find broken link patterns from report
+          const patternSection = report.match(/🔗 Top.*patterns:[\s\S]*?(?=\n\n)/);
+          const patterns = patternSection ? patternSection[0] : 'See full report for details.';
+
+          const comment = `## ❌ Link Validation Failed
+
+**Statistics:**
+- Broken links: ${brokenLinks}
+- Total links: ${totalLinks}
+- Success rate: ${successRate}%
+
+**Most Common Issues:**
+\`\`\`
+${patterns}
+\`\`\`
+
+**What to do:**
+1. Download the full report from the workflow artifacts
+2. Run \`python3 scripts/link-checker.py doc/\` locally to see all issues
+3. Fix broken links before merging
+4. See \`LINK_CHECKER_README.md\` for help
+
+**Quick fixes:**
+- Check for typos in file paths
+- Ensure referenced files exist
+- Update paths after moving files
+`;
+
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment
+          });
+
+    - name: Generate job summary
+      if: always()
+      run: |
+        echo "# Link Validation Report" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+
+        if [ "${{ job.status }}" == "success" ]; then
+          echo "## ✅ All Links Valid!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- Total links: ${{ steps.link_check.outputs.total_links }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Success rate: ${{ steps.link_check.outputs.success_rate }}%" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "## ❌ Broken Links Found" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- Broken links: ${{ steps.link_check.outputs.broken_links }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Total links: ${{ steps.link_check.outputs.total_links }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Success rate: ${{ steps.link_check.outputs.success_rate }}%" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Action Required:** Fix broken links before merging." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "See the [full report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details." >> $GITHUB_STEP_SUMMARY
+        fi
+
+    - name: Fail if links are broken
+      if: steps.link_check.outputs.broken_links != '0'
+      run: |
+        echo "❌ Found ${{ steps.link_check.outputs.broken_links }} broken link(s)"
+        echo "Review the report and fix broken links"
+        exit 1

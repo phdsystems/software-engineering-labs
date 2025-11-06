@@ -1,0 +1,108 @@
+[
+  {
+    "id": "beginner",
+    "title": "Beginner Path (0-2 years)",
+    "description": "Start your software engineering journey from first principles",
+    "difficulty": "beginner",
+    "estimatedHours": 40,
+    "tags": ["fundamentals", "design-principles", "patterns"],
+    "modules": [
+      {
+        "id": "module-1",
+        "title": "First Principles Foundation",
+        "description": "Understand the philosophy of first principles thinking",
+        "required": true,
+        "contentSlugs": [
+          "guide/first-principles-approach",
+          "guide/learning-path"
+        ]
+      },
+      {
+        "id": "module-2",
+        "title": "Design Principles",
+        "description": "Master SOLID and other fundamental design principles",
+        "required": true,
+        "contentSlugs": [
+          "design-principle/overview",
+          "design-principle/solid-principle",
+          "design-principle/dry-principle",
+          "design-principle/separation-of-concerns",
+          "design-principle/yagni-kiss"
+        ]
+      },
+      {
+        "id": "module-3",
+        "title": "Design Patterns",
+        "description": "Learn tactical solutions to common problems",
+        "required": true,
+        "contentSlugs": [
+          "design-pattern/overview",
+          "design-pattern/creational-pattern",
+          "design-pattern/structural-pattern",
+          "design-pattern/behavioral-pattern"
+        ]
+      },
+      {
+        "id": "module-4",
+        "title": "Clean Architecture Basics",
+        "description": "Introduction to system architecture",
+        "required": false,
+        "contentSlugs": [
+          "architecture-pattern/overview",
+          "architecture-pattern/deep-dive-clean-architecture"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "intermediate",
+    "title": "Intermediate Path (2-5 years)",
+    "description": "Advance to architecture patterns and distributed systems",
+    "difficulty": "intermediate",
+    "estimatedHours": 60,
+    "tags": ["architecture", "microservices", "distributed-systems"],
+    "modules": [
+      {
+        "id": "module-1",
+        "title": "Architecture Patterns",
+        "description": "System-level design patterns",
+        "required": true,
+        "contentSlugs": [
+          "architecture-pattern/overview",
+          "architecture-pattern/deep-dive-clean-architecture",
+          "architecture-pattern/deep-dive-microservices",
+          "architecture-pattern/deep-dive-event-driven"
+        ]
+      },
+      {
+        "id": "module-2",
+        "title": "Modern Architectures",
+        "description": "Cloud-native and serverless patterns",
+        "required": true,
+        "contentSlugs": [
+          "architecture-pattern/deep-dive-serverless"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "advanced",
+    "title": "Senior Path (5+ years)",
+    "description": "Master advanced patterns like CQRS and Event Sourcing",
+    "difficulty": "advanced",
+    "estimatedHours": 50,
+    "tags": ["advanced", "cqrs", "event-sourcing", "distributed"],
+    "modules": [
+      {
+        "id": "module-1",
+        "title": "Advanced Patterns",
+        "description": "CQRS and Event Sourcing",
+        "required": true,
+        "contentSlugs": [
+          "architecture-pattern/deep-dive-cqrs",
+          "architecture-pattern/deep-dive-event-sourcing"
+        ]
+      }
+    ]
+  }
+]
